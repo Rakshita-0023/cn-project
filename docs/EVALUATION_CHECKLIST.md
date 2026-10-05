@@ -1,50 +1,52 @@
-# Phase 1 evaluation checklist
+# Codexers — Phase 1 evaluation checklist
 
-These boxes represent the future physical deployment. Local loopback tests do not mark physical evidence complete. Both members should be able to explain every part.
+**Infrastructure:** Type 2 — 2 physical macOS laptops with combined roles, supported by the Phase 1 submission form.
 
-- [ ] Both laptops on same LAN
-- [ ] IP addresses recorded, with interface, subnet/mask, gateway and MAC addresses
-- [ ] Ping works both ways
-- [ ] DNS working on Laptop 1 over UDP and TCP
-- [ ] `app.team1.test` resolves to Laptop 2
-- [ ] `api.team1.test` resolves to Laptop 2
-- [ ] Both real clients use the private DNS resolver
-- [ ] Backend A running on Laptop 1, port 3001
-- [ ] Backend B running on Laptop 2, port 3002
-- [ ] nginx running on Laptop 2 after successful configuration validation
-- [ ] HTTPS works for both names on the configured HTTPS port
-- [ ] Certificate trusted on both Macs; both SANs and validity checked
-- [ ] `X-Backend: A` observed
-- [ ] `X-Backend: B` observed
-- [ ] Round-robin requests and response headers explained
-- [ ] Caching demonstrated: `Cache-Control`, ETag, conditional 304 with no body
-- [ ] DNS Wireshark evidence: question, answer, resolver, addresses and ports
-- [ ] TCP handshake evidence: SYN, SYN-ACK, ACK and socket ports
-- [ ] TCP sequence/acknowledgement numbers and receive window explained
-- [ ] TLS handshake evidence: ClientHello, ServerHello, certificate-related packets, encrypted traffic
-- [ ] Additional TLS 1.2 capture identifies Certificate and ChangeCipherSpec
-- [ ] All five failure demonstrations completed and restored
-- [ ] Evidence saved and reviewed for accidental private data
-- [ ] Configuration bundle and complete source ready for submission
-- [ ] Both members prepared for individual Phase 1 viva
-- [ ] Faculty confirmation recorded for the literal DNS client-count limitation
+Checked items record the team's reported successful live deployment. They do not imply that screenshots, terminal-output files or packet captures have already been committed. The evidence directories currently contain the index and `.gitkeep` files; attach the actual artifacts using [evidence/README.md](../evidence/README.md).
 
-If the team label or ports are deliberately changed in `network.env`, evaluate the actual configured names/ports and record them. The normal example is team1 with backend ports 3001/3002 and HTTPS 8443.
+- [x] Two laptops connected to same LAN
+- [x] Laptop 1 IP recorded: `10.7.18.118`
+- [x] Laptop 2 IP recorded: `10.7.31.46`
+- [x] Ping works Laptop 1 → Laptop 2
+- [x] Ping works Laptop 2 → Laptop 1
+- [x] dnsmasq running on Laptop 1
+- [x] `app.codexers.test` resolves to `10.7.31.46`
+- [x] `api.codexers.test` resolves to `10.7.31.46`
+- [x] Public Google DNS returns NXDOMAIN for `app.codexers.test`
+- [x] Backend A running on `10.7.18.118:3001`
+- [x] Backend B running on `10.7.31.46:3002`
+- [x] nginx running on Laptop 2
+- [x] HTTPS works without `-k`
+- [x] TLS certificate validation succeeds
+- [x] subjectAltName matches `app.codexers.test`
+- [x] `X-Backend: A` observed
+- [x] `X-Backend: B` observed
+- [x] Round-robin balancing demonstrated
+- [x] Cache-Control demonstrated on `/cache-demo`
+- [x] ETag demonstrated
+- [x] `304 Not Modified` demonstrated
+- [x] Wireshark DNS capture completed
+- [x] Wireshark TCP handshake capture completed
+- [x] Wireshark TLS handshake capture completed
+- [x] Failure demo completed: Backend A stopped
+- [x] Backend B continued serving requests
+- [x] Backend A restored
+- [x] A/B balancing resumed
+- [ ] Final 5-minute video uploaded
+- [ ] Google Form submitted
 
-## Assignment coverage
+## Submission coverage
 
-| Area | Implementation / demonstration |
+| Area | Recorded deployment / submission content |
 |---|---|
-| Task A: LAN setup | Two actual inventories, shared LAN, ping in both directions |
-| Task B: Private DNS | dnsmasq on Laptop 1, both names map to Laptop 2, real client resolver settings; literal client count needs faculty confirmation |
-| Task C: Backend services | A and B direct responses and identification headers |
-| Task D: Edge and balancing | Laptop 2 nginx, equal-weight pool, forwarded headers, both selections |
-| Task E: TLS / HTTPS | SAN certificate, trusted clients, validated HTTPS and handshake |
-| Task F: Caching / transport | max-age, validators, 304, TCP sequence/ACK/window explanation |
-| Task G: Packet evidence | Actual DNS, TCP, TLS and encrypted HTTPS captures |
-| Failures | All five procedures in [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md) |
-| Deliverables / viva | Architecture, configuration bundle, source, genuine evidence and individual explanation |
+| LAN | Two physical hosts, recorded IPs and bidirectional ping |
+| Private DNS | Laptop 1 dnsmasq; app/API → Laptop 2; public NXDOMAIN comparison; managed-Mac scoped resolver where needed |
+| Backends | A :3001 and B :3002, JSON and backend headers |
+| Edge | Laptop 2 nginx, HTTPS :8443 and equal-weight round robin |
+| TLS | Certificate validation and app-domain SAN; no validation bypass |
+| Caching | `/cache-demo`, max-age=60, ETag, conditional 304; `/api/status` intentionally no-store |
+| Wireshark | Real DNS, TCP SYN/SYN-ACK/ACK and TLS capture observations |
+| Selected failure | **Option A — Stop Backend A**, B continues, restart A and balancing resumes |
+| Deliverables | Architecture, configuration bundle, source, evidence index, final video and form |
 
-The original assignment's Phase 1 scope is Tasks A–G in §6.2, all five failures in §6.3, and the relevant deliverables in §9. Review 1 in §10 is 50 marks: LAN/DNS 10, backends/edge 10, TLS 8, packet evidence 7, caching/transport 5, and individual viva 10. Providing the files does not complete the live evaluation or guarantee marks.
-
-The team uses two physical Macs and combines machine roles. The assignment's specific requirement asking two other Macs to use the DNS resolver cannot be literally demonstrated with two physical Macs and should be confirmed with faculty. An unchecked faculty-confirmation box is not a claim of approval. Capturing loopback traffic does not create another physical Mac.
+The form requires one selected failure demonstration. The other scenarios retained in [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md) are reference procedures and are not marked as completed live. Use [the recording plan](../README.md#5-minute-demo-recording), fill both enrollment numbers and the section label, attach real evidence, then upload the video and submit the form.

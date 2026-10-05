@@ -1,12 +1,49 @@
-# Phase 1 configuration bundle
+# Codexers — Phase 1 configuration bundle
 
 Run commands from the repository root. The [deployment guide](../README.md) gives the complete order. All deployment addresses come from your uncommitted `network.env`; configuration templates stay portable.
+
+## Recorded deployment
+
+**Infrastructure:** Type 2 — 2 physical macOS laptops with combined roles.
+
+| Component | Recorded host / address |
+|---|---|
+| DNS | Laptop 1 / Person A, `10.7.18.118`, dnsmasq, UDP/TCP port 53 |
+| Edge | Laptop 2 / Person B, `10.7.31.46`, nginx, HTTPS 8443 |
+| Backend A | `10.7.18.118:3001` |
+| Backend B | `10.7.31.46:3002` |
+| App domain | `app.codexers.test` → `10.7.31.46` |
+| API domain | `api.codexers.test` → `10.7.31.46` |
+| Caching | `https://app.codexers.test:8443/cache-demo` |
+
+These are actual addresses from the completed deployment, not fixed addresses for every LAN. The team reported successful DNS, validated HTTPS, balancing, caching/304 and Backend A stop/recovery. Real artifact attachments are organized in [evidence/README.md](../evidence/README.md).
+
+## Recorded deployment variables
+
+The following public deployment values describe the existing local `network.env`; no runtime file or private key is committed:
+
+```text
+TEAM_NAME=Codexers
+LAPTOP1_IP=10.7.18.118
+LAPTOP2_IP=10.7.31.46
+DNS_IP=10.7.18.118
+EDGE_IP=10.7.31.46
+BACKEND_A_IP=10.7.18.118
+BACKEND_A_PORT=3001
+BACKEND_B_IP=10.7.31.46
+BACKEND_B_PORT=3002
+APP_DOMAIN=app.codexers.test
+API_DOMAIN=api.codexers.test
+HTTPS_PORT=8443
+```
+
+The parser normalizes the team label to lowercase for DNS names. `network.env.example` intentionally remains a generic reusable example, and tests referring to its generic label remain unchanged. For Codexers, edit the ignored runtime file with the actual domains and current LAN addresses rather than modifying Python logic.
 
 ## Variables and roles
 
 | Variable | Meaning |
 |---|---|
-| `TEAM_NAME` | Private team label; the example is `team1` |
+| `TEAM_NAME` | Team display name Codexers; normalized to `codexers` for DNS |
 | `LAPTOP1_IP` | Person A's real LAN address |
 | `LAPTOP2_IP` | Person B's real LAN address |
 | `DNS_IP`, `BACKEND_A_IP` | Both equal `LAPTOP1_IP` |
@@ -34,7 +71,7 @@ python3 dns/configure_dns.py --check
 
 The renderer creates `dns/generated/dnsmasq.conf` from [the template](../dns/dnsmasq.conf.template). Both app and API A records point to `EDGE_IP`, which is Laptop 2. dnsmasq listens on Laptop 1's configured address on UDP/TCP 53. It does not provide DHCP or read system hosts files. Logs and PID are isolated in `dns/runtime/`.
 
-On each client, `./dns/set_client_dns.sh` selects the actual Wi-Fi network service, saves its original DNS settings, and sets `DNS_IP`. `./dns/restore_client_dns.sh` restores that saved state. The saved state belongs to that particular Mac; do not copy it between laptops.
+On each client, `./dns/set_client_dns.sh` selects the actual Wi-Fi network service, saves its original DNS settings, and sets `DNS_IP`. `./dns/restore_client_dns.sh` restores that saved state. The saved state belongs to that particular Mac; do not copy it between laptops. When MDM overrode this setting during deployment, the [scoped resolver workaround](../dns/README.md#managed-mac--mdm-dns-override) routed only `codexers.test` to Laptop 1.
 
 ## Laptop 2: nginx
 
@@ -58,7 +95,7 @@ On Laptop 2:
 openssl x509 -in tls/certs/server.crt -noout -subject -dates -ext subjectAltName
 ```
 
-The default is a self-signed server certificate with both configured domains in its Subject Alternative Names. The preserved optional `--local-ca` generates a private local CA and a signed server certificate; see [TLS instructions](../tls/README.md) for its assignment approval condition. Neither route produces a CN-only certificate. nginx supports TLS 1.2 and TLS 1.3.
+These generation commands are for a new deployment; keep existing working material for the recording. The default is a self-signed server certificate with both configured domains in its Subject Alternative Names. The preserved optional `--local-ca` generates a private local CA and a signed server certificate; see [TLS instructions](../tls/README.md). Neither route produces a CN-only certificate. nginx supports TLS 1.2 and TLS 1.3.
 
 Copy only the public trust certificate to Laptop 1: `server.crt` for the default route, or `ca.crt` for the optional CA route. On both laptops run `./tls/trust_certificate.sh` and verify browser trust. Test scripts also use the appropriate public anchor with `curl --cacert`; certificate identity and trust remain checked. Private keys stay on Laptop 2 and out of Git.
 
@@ -78,6 +115,8 @@ python3 backend/backend_b.py
 
 Both bind `0.0.0.0`, expose `/`, `/api/status`, and `/cache-demo`, and identify themselves with `X-Backend`. The retained `/api/cache` alias behaves identically to `/cache-demo`. The cache representation and ETag match across backends, permitting a valid 304 even when nginx chooses a different backend for revalidation.
 
+**HTTP caching is demonstrated on `/cache-demo`.** Show `curl -sI https://app.codexers.test:8443/cache-demo` and `./scripts/test_caching.sh` for the actual Cache-Control, ETag and conditional 304. `/api/status` intentionally uses `Cache-Control: no-store`.
+
 On each laptop after complete setup:
 
 ```sh
@@ -88,6 +127,6 @@ The independently runnable checks cover ping, direct backends, UDP/TCP DNS, vali
 
 ## Submission material
 
-Keep source and templates in Git. Add genuine, reviewed evidence after deployment using [the evidence index](../evidence/README.md). Generated configs contain local paths and addresses and are ignored. If faculty requests a configuration bundle, share reviewed generated DNS/nginx configs separately with the public certificate, backend commands, and actual inventory; exclude keys and saved client DNS state. `python3 scripts/_common.py bundle` produces a source archive under ignored `scripts/runtime/` and excludes runtime secrets.
+Keep source and templates in Git and attach the genuine evidence already collected using [the evidence index](../evidence/README.md). Generated configs contain local paths and addresses and are ignored; reviewed DNS/nginx excerpts may be saved as safe text evidence. Exclude all private keys and saved client DNS state. `python3 scripts/_common.py bundle` produces a source archive under ignored `scripts/runtime/` and excludes runtime secrets.
 
-The team uses two physical Macs and combines machine roles. The assignment's specific requirement asking two other Macs to use the DNS resolver cannot be literally demonstrated with two physical Macs and should be confirmed with faculty.
+Live submission demo used **Option A — Stop Backend A**; its reported results and restoration are in [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md). This project uses Type 2 infrastructure: two physical macOS laptops with combined roles, as supported by the Phase 1 submission form.

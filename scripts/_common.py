@@ -576,7 +576,7 @@ def main():
     sub.add_parser("validate", help="Validate the one editable network.env")
     sub.add_parser("shell-env", help="Emit validated shell variables for source <(...) in documentation")
     tls = sub.add_parser("certificate")
-    tls.add_argument("--local-ca", action="store_true", help="Optional local CA route requires assignment faculty approval")
+    tls.add_argument("--local-ca", action="store_true", help="Generate an optional local CA and a SAN server certificate")
     sub.add_parser("trust")
     change = sub.add_parser("set-dns")
     change.add_argument("--service")

@@ -1,4 +1,6 @@
-# Phase 1 protocol layers
+# Codexers — Phase 1 protocol layers
+
+The recorded Type 2 deployment used Laptop 1 (`10.7.18.118`) for DNS and Backend A, and Laptop 2 (`10.7.31.46`) for nginx/TLS and Backend B. Clients accessed `app.codexers.test:8443`; each computer combined server and client roles.
 
 | Layer | Meaning in this project | What to observe |
 |---|---|---|

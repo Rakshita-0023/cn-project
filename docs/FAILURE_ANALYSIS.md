@@ -1,4 +1,24 @@
-# Five Phase 1 failure demonstrations
+# Codexers — Phase 1 failure analysis
+
+## Live submission demo — Option A
+
+**Live submission demo used Option A — Stop Backend A.** The submission form requires one selected failure demonstration. The team completed this scenario on its two physical Macs:
+
+| Stage | Reported live result |
+|---|---|
+| Before | Laptop 2 nginx alternated between Backend A (`10.7.18.118:3001`) and Backend B (`10.7.31.46:3002`) |
+| Action | Backend A process on Laptop 1 was stopped with Ctrl+C |
+| After | All successful requests showed `X-Backend: B` |
+| Affected layer | Backend/application service layer; nginx's connection to A could no longer reach that process |
+| Still working | DNS, client-to-nginx TCP, TLS, nginx edge and Backend B |
+| Restore | Restart Backend A with `python3 backend/backend_a.py` on Laptop 1 |
+| After restore | A/B round-robin balancing resumed after the passive failure window |
+
+The client continued using `https://app.codexers.test:8443/api/status` with certificate verification enabled. Save the actual before/down/restored output under `evidence/failures/`; this account does not assert those files are already attached.
+
+## Reversible procedures
+
+The five procedures below are retained for troubleshooting and course discussion. **Only the Backend A stop scenario was reported demonstrated live.** Wrong client DNS, wrong record, both backends stopped and wrong port are reference scenarios, not additional completed submission demonstrations.
 
 Complete the healthy two-laptop deployment first. Inject one fault at a time, save the real result and restoration result in `evidence/failures/`, and restore before continuing. Leave DNS, nginx, and unaffected backends running. Commands start at the repository root. In every client terminal:
 
@@ -17,12 +37,15 @@ sudo killall -HUP mDNSResponder
 
 Use fresh curl processes. Browser secure DNS, VPN resolvers, or cached answers can mask the fault; inspect `scutil --dns` and the actual packet capture. Never use an IP URL or a validation bypass to conceal a DNS/TLS failure.
 
-## 1. Wrong DNS server configured on the client
+## 1. Wrong DNS server configured on the client — reference
 
 **HOW TO BREAK:** On Laptop 2 confirm it has no DNS service on port 53 using `sudo lsof -nP -iUDP:53 -iTCP:53`. Then change only Laptop 2's client resolver to its own actual address:
 
 ```sh
 ./dns/set_client_dns.sh --server "$LAPTOP2_IP"
+if [ -f "/etc/resolver/$TEAM_NAME.test" ]; then
+  printf 'nameserver %s\nport 53\n' "$LAPTOP2_IP" | sudo tee "/etc/resolver/$TEAM_NAME.test"
+fi
 sudo dscacheutil -flushcache
 sudo killall -HUP mDNSResponder
 dig +time=2 +tries=1 "$APP_DOMAIN" A
@@ -37,9 +60,21 @@ ping -c 3 "$LAPTOP1_IP"
 
 **WHY IT HAPPENS:** The client sends DNS questions to a machine without the required resolver. It cannot obtain the edge address from that resolver.
 
-**HOW TO RESTORE:** On Laptop 2 run `./dns/set_client_dns.sh` without `--server`, flush the client cache, then run `./scripts/test_dns.sh` and `./scripts/test_https.sh`. Repeated setting changes preserve the original pre-project backup. Use `restore_client_dns.sh` only when leaving the project, since it restores the pre-project resolver rather than the project resolver.
+**HOW TO RESTORE:** On Laptop 2 run `./dns/set_client_dns.sh` without `--server`, then restore any project-owned scoped entry and flush/check using the commands below. Repeated setting changes preserve the original pre-project backup. Use `restore_client_dns.sh` only when leaving the project, since it restores the pre-project resolver rather than the project resolver.
 
-## 2. DNS record points to the wrong IP
+If the managed Mac uses the project-owned scoped resolver, the fault command above changes that entry too; do not change unrelated resolver files. Restore its nameserver before flushing and checking HTTPS:
+
+```sh
+if [ -f "/etc/resolver/$TEAM_NAME.test" ]; then
+  printf 'nameserver %s\nport 53\n' "$DNS_IP" | sudo tee "/etc/resolver/$TEAM_NAME.test"
+fi
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
+./scripts/test_dns.sh
+./scripts/test_https.sh
+```
+
+## 2. DNS record points to the wrong IP — reference
 
 **HOW TO BREAK:** On Laptop 1 point both project records to Laptop 1, where nginx is not deployed:
 
@@ -71,7 +106,7 @@ python3 dns/configure_dns.py --check
 
 Flush both clients and run the DNS and HTTPS checks. This procedure changes only generated records, keeping `network.env` intact.
 
-## 3. One backend stopped
+## 3. One backend stopped — live Option A used Backend A
 
 **HOW TO BREAK:** On Laptop 1 stop only Backend A with Ctrl+C in its server terminal, or:
 
@@ -93,7 +128,7 @@ From either client:
 
 **HOW TO RESTORE:** On Laptop 1 run `python3 backend/backend_a.py` again. Allow more than five seconds for passive failure expiry, then run `./scripts/test_backends.sh` and `./scripts/test_load_balancing.sh`. Both A and B must reappear. You may also demonstrate B stopped with `service backend-b stop`, `--expect A`, and B's original launch command.
 
-## 4. Both backends stopped
+## 4. Both backends stopped — reference
 
 **HOW TO BREAK:** Stop Backend A on Laptop 1 and Backend B on Laptop 2, keeping dnsmasq and nginx running:
 
@@ -117,7 +152,7 @@ python3 scripts/_common.py diagnose
 
 **HOW TO RESTORE:** Restart A and B with their original Python commands on their respective laptops. Allow more than five seconds, then run direct-backend, HTTPS, load-balancing, and caching checks. Save the recovery results with the failure output.
 
-## 5. Wrong destination port
+## 5. Wrong destination port — reference
 
 **HOW TO BREAK:** On Laptop 2 inspect actual listening ports with `lsof -nP -iTCP -sTCP:LISTEN`. Choose a currently unused TCP port that differs from every configured service port. On the client enter that observed port:
 
@@ -140,4 +175,4 @@ curl --noproxy '*' --cacert "$TLS_ANCHOR" --connect-timeout 4 --max-time 10 \
 
 ## Finish
 
-Run `./scripts/test_all.sh` on both laptops after every fault is restored. Save genuine packet/screenshots and sanitized terminal output, including each restoration. At the end of the session restore original client DNS settings on both laptops, stop project services as described in the root guide, and remove certificate trust if appropriate using [the removal procedure](../tls/remove_certificate.md).
+Run `./scripts/test_all.sh` on both laptops after any injected fault is restored. Save genuine screenshots and sanitized terminal output for the chosen live Option A demonstration, including restoration. At the end of the session restore original client DNS settings on both laptops, remove the project-owned MDM scoped entry if used, stop project services as described in the root guide, and remove certificate trust if appropriate using [the removal procedure](../tls/remove_certificate.md).

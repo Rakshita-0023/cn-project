@@ -1,50 +1,53 @@
-# Two-member / two-Mac Phase 1 architecture
+# Codexers — Type 2 Phase 1 architecture
+
+This project uses Type 2 infrastructure: two physical macOS laptops with combined roles, as supported by the Phase 1 submission form. Rakshita Polana is Person A; Lakshya Choudhary is Person B. Roles share hosts because there are two physical Macs.
+
+The addresses below are the **actual IPs used during the recorded Phase 1 deployment**. They can change on another LAN; update the ignored `network.env` and render configurations locally when redeploying.
 
 ```text
-                   SAME LAN / HOTSPOT
+                   SAME LAN
 
-          ┌──────────────────────────┐
-          │                          │
-     LAPTOP 1                   LAPTOP 2
-     Person A                   Person B
-     DNS                        nginx
-     Backend A :3001            HTTPS/TLS :8443
-     Main Client                Round-robin Load Balancer
-                                Backend B :3002
-                                Secondary Client
+        ┌───────────────────────────┐
+        │                           │
+   LAPTOP 1                    LAPTOP 2
+   Person A                    Person B
+   10.7.18.118                 10.7.31.46
+   DNS :53                     nginx / TLS :8443
+   Backend A :3001             Round-robin Load Balancer
+   Main Client                 Backend B :3002
+                               Secondary Client
 ```
 
 ```text
 Client
-   ↓  DNS query for APP_DOMAIN
-Laptop 1 DNS :53 UDP/TCP
-   ↓  answer is Laptop 2 EDGE_IP
+  ↓  query / response
+Laptop 1 DNS (10.7.18.118:53)
+  ↓  app.codexers.test → 10.7.31.46
 Client opens a separate TCP/TLS connection
-   ↓
-Laptop 2 nginx :HTTPS_PORT
-   ↓  TLS termination; backend selection
- ┌──────────────┐
- ↓              ↓
-Laptop 1       Laptop 2
-Backend A      Backend B
-:3001          :3002
-   ↘            ↙
-    nginx encrypts the response to the client
+  ↓
+Laptop 2 nginx :8443
+  ↓  TLS termination and round-robin selection
+ ┌───────────────────┐
+ ↓                   ↓
+Backend A            Backend B
+10.7.18.118:3001      10.7.31.46:3002
+      ↘             ↙
+       nginx returns the response over TLS
 ```
 
-There are exactly two physical computers and two members, so DNS/backend/client roles share Laptop 1 and edge/backend/client roles share Laptop 2. Role combining is permitted by the assignment. The team uses two physical Macs and combines machine roles. The assignment's specific requirement asking two other Macs to use the DNS resolver cannot be literally demonstrated with two physical Macs and should be confirmed with faculty.
-
-| Host | Service | Configuration |
+| Host | Recorded service | Runtime configuration |
 |---|---|---|
-| Laptop 1 / Person A | dnsmasq, DNS UDP/TCP53 | `DNS_IP = LAPTOP1_IP` |
-| Laptop 1 / Person A | Backend A, HTTP TCP3001 by default | `BACKEND_A_IP = LAPTOP1_IP`, `BACKEND_A_PORT` |
-| Laptop 2 / Person B | nginx, HTTPS TCP8443 by default; HTTP8080 redirect | `EDGE_IP = LAPTOP2_IP`, `HTTPS_PORT`; optional `HTTP_PORT` |
-| Laptop 2 / Person B | Backend B, HTTP TCP3002 by default | `BACKEND_B_IP = LAPTOP2_IP`, `BACKEND_B_PORT` |
+| Laptop 1 / Person A | dnsmasq, UDP/TCP 53 | `DNS_IP = LAPTOP1_IP = 10.7.18.118` |
+| Laptop 1 / Person A | Backend A, HTTP :3001 | `BACKEND_A_IP = LAPTOP1_IP`, `BACKEND_A_PORT=3001` |
+| Laptop 2 / Person B | nginx, HTTPS :8443; HTTP :8080 redirect | `EDGE_IP = LAPTOP2_IP = 10.7.31.46`, `HTTPS_PORT=8443` |
+| Laptop 2 / Person B | Backend B, HTTP :3002 | `BACKEND_B_IP = LAPTOP2_IP`, `BACKEND_B_PORT=3002` |
 
-All deployment values come from the one ignored `network.env`. Reserved `.test` names are used. Both clients trust the public project certificate and resolve through Laptop 1. DNS supplies an address; it does not relay the HTTPS request. nginx hides backend addresses from normal application clients and forwards HTTP on separate TCP connections to its two equal-weight upstreams. [Full request flow](docs/REQUEST_FLOW.md).
+Both `app.codexers.test` and `api.codexers.test` resolve privately to Laptop 2. Public Google DNS returned NXDOMAIN for `app.codexers.test`. DNS supplies an address; it does not relay HTTPS. nginx is the normal application entry point and makes separate HTTP connections to the two equal-weight backends. Client-to-edge TLS ends at nginx; backend HTTP is plaintext on the lab LAN. [Full request flow](docs/REQUEST_FLOW.md).
 
-Record actual IP, mask/prefix, gateway, interface and MAC address for both hosts with the inventory helper and save results to `evidence/lan/`. Both directions of ping must be observed on the actual laptops.
+Both laptops also serve as test clients. The reported deployment confirmed ping in both directions, trusted HTTPS, A/B selection, `/cache-demo` headers and conditional 304, and DNS/TCP/TLS captures. The captured client-to-edge TCP connection used `10.7.18.118:59218 → 10.7.31.46:8443`; 59218 was an ephemeral source port for that connection, not a fixed service port.
 
-Co-located connections may use loopback. Laptop 1's self-DNS query and Laptop 2's self-HTTPS/backend connections will not all appear in a LAN-only capture; [capture both LAN and loopback](wireshark/README.md).
+Co-located requests can appear on loopback rather than Wi-Fi. Laptop 1's self-DNS and Laptop 2's self-edge/backend traffic may be missed by a LAN-only capture. [Wireshark instructions](wireshark/README.md) cover both interfaces and the recorded packet details. On the managed Mac, a [domain-specific resolver](dns/README.md#managed-mac--mdm-dns-override) selected Laptop 1 for `codexers.test` while leaving unrelated DNS under normal macOS/MDM settings.
 
-TLS ends at nginx. Backend HTTP is plaintext on the lab LAN. Stopping only one backend process permits nginx to retry another for the Phase 1 failure demo; stopping the whole laptop also loses its infrastructure roles. DNS on Laptop 1 and nginx on Laptop 2 are single points of failure. No redundant infrastructure is claimed.
+**Live submission demo used Option A — Stop Backend A.** DNS, TCP/TLS to nginx, nginx and Backend B continued working. Restarting Backend A restored A/B round robin. Stopping the backend process preserves Laptop 1's DNS; switching off that laptop would remove both roles. DNS and nginx remain single infrastructure instances in this Type 2 deployment.
+
+The [evaluation checklist](docs/EVALUATION_CHECKLIST.md) records reported live completion. Attach the team's real artifacts using [the evidence index](evidence/README.md); documentation of a result is not a claim that its screenshot or capture is already committed.

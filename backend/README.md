@@ -1,4 +1,6 @@
-# Backend services
+# Codexers backend services
+
+The recorded Type 2 deployment ran Backend A on Laptop 1 / Rakshita Polana (`10.7.18.118:3001`) and Backend B on Laptop 2 / Lakshya Choudhary (`10.7.31.46:3002`). These recorded addresses can change; source code continues to read the runtime ports rather than fixing LAN addresses.
 
 Person A runs `python3 backend/backend_a.py` on Laptop 1; Person B runs `python3 backend/backend_b.py` on Laptop 2. Run from the root; the shell start scripts also work from other directories. Both bind IPv4 `0.0.0.0`, which makes them LAN-accessible. Ports come from `network.env`; without that file the entry points default to 3001/3002, enabling a quick local backend check.
 
@@ -13,6 +15,8 @@ Person A runs `python3 backend/backend_a.py` on Laptop 1; Person B runs `python3
 | `/api/cache` | Preserved compatible alias for the cache endpoint |
 
 Every normal response identifies A/B in `X-Backend`. Both instances share the same cache representation and ETag so validation remains correct across nginx round robin. HEAD exposes representation headers without a body. Unknown paths return404. HTTP/1.1 is supported using Python's standard library.
+
+**HTTP caching is demonstrated on `/cache-demo`**, accessed through `https://app.codexers.test:8443/cache-demo`. `/api/status` intentionally returns `Cache-Control: no-store`; its repeated requests demonstrate actual backend selection.
 
 Start in a dedicated terminal with the Python entry point or `./backend/start_backend_a.sh` / `./backend/start_backend_b.sh`. Stop using Ctrl+C or `python3 scripts/_common.py service backend-a stop` / `backend-b stop`. PID files are isolated under ignored `backend/runtime/`; existing project services and unrelated PID reuse are checked.
 

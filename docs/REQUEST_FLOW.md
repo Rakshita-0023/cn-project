@@ -1,4 +1,6 @@
-# A Phase 1 request, end to end
+# A Codexers Phase 1 request, end to end
+
+Recorded Type 2 deployment: Laptop 1 DNS and Backend A at `10.7.18.118`, Laptop 2 nginx and Backend B at `10.7.31.46`. Both `app.codexers.test` and `api.codexers.test` resolve to Laptop 2, with HTTPS port 8443. These LAN addresses can change; runtime rendering still reads `network.env`.
 
 ```text
 DNS lookup at Laptop 1
@@ -22,10 +24,21 @@ Both clients are co-located with server roles. Laptop 1's query to its own DNS a
 
 ## Cache path
 
+**HTTP caching is demonstrated on `/cache-demo`.** Inspect the real deployed endpoint:
+
+```sh
+curl -sI https://app.codexers.test:8443/cache-demo
+./scripts/test_caching.sh
+```
+
+Expected headers include `Cache-Control: public, max-age=60`, the actual quoted ETag, `X-Backend: A` or `B`, and `Date`. Use installed certificate trust, or supply the public anchor with `--cacert` if needed; do not bypass validation.
+
 `/api/status` uses `Cache-Control: no-store`, keeping the load-balancing demonstration visible. `/cache-demo` and its retained `/api/cache` alias send `Cache-Control: public, max-age=60` and an ETag. Both backends intentionally share this representation and ETag.
 
 A browser may reuse fresh cached content without a network request. A conditional request sends `If-None-Match` with the actual ETag; an unchanged representation produces `304 Not Modified` with no response body. nginx forwards this behavior without introducing its own proxy cache. Repeating ordinary curl commands does not by itself demonstrate persistent browser caching.
 
 ## Failed path
 
-Use the furthest successful step to locate the problem. Wrong resolver: no usable name lookup. Wrong record or port: connection goes to a wrong endpoint. Untrusted certificate: TCP succeeds but TLS validation fails. Both backends stopped: DNS, TCP and TLS can succeed before nginx returns HTTP 502. The [five failure demonstrations](FAILURE_ANALYSIS.md) make these distinctions observable.
+Use the furthest successful step to locate the problem. Wrong resolver: no usable name lookup. Wrong record or port: connection goes to a wrong endpoint. Untrusted certificate: TCP succeeds but TLS validation fails. Both backends stopped: DNS, TCP and TLS can succeed before nginx returns HTTP 502. These are reference explanations in [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md).
+
+**Live submission demo used Option A — Stop Backend A.** The team observed that DNS, TCP/TLS to the edge, nginx and Backend B continued working, then A/B balancing resumed after Backend A was restarted. The other scenarios are not claimed completed live.

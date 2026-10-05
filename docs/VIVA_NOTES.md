@@ -1,6 +1,6 @@
-# Phase 1 viva notes
+# Codexers — Phase 1 viva notes
 
-Both Person A and Person B should explain the full system, including components running on the other laptop.
+Rakshita Polana (Person A) and Lakshya Choudhary (Person B) should explain the full Type 2 system, including components running on the other laptop. Laptop 1 (`10.7.18.118`) hosted DNS/Backend A; Laptop 2 (`10.7.31.46`) hosted nginx/TLS/Backend B. App/API names are `app.codexers.test` and `api.codexers.test`.
 
 | Topic | Concise answer |
 |---|---|
@@ -17,7 +17,7 @@ Both Person A and Person B should explain the full system, including components 
 | Reverse proxy | nginx receives client requests and makes separate requests to backends, hiding their selection behind one edge endpoint. |
 | Load balancing | Distributes requests across A and B. `X-Backend` and nginx logs reveal the selected server. |
 | Round robin | Equal-weight healthy upstreams are selected in rotation. Other clients and temporarily failed upstreams affect a visible sequence. |
-| Cache-Control | `public, max-age=60` permits caching this representation for 60 seconds; status uses `no-store`. |
+| Cache-Control | `/cache-demo` uses `public, max-age=60`; `/api/status` intentionally uses `no-store` so balancing remains observable. |
 | ETag | Identifies the current representation. Both backends share identical cache content and therefore the same tag. |
 | 304 | A matching `If-None-Match` means the representation has not changed; send headers without the body. |
 | Wireshark | Captures/decodes actual packets. Capture LAN plus loopback because client/server roles share two hosts. |
@@ -27,6 +27,10 @@ Both Person A and Person B should explain the full system, including components 
 | HTTP versions | HTTP/1.1 works here; optional HTTP/2 multiplexes streams; HTTP/3 uses QUIC over UDP and is not implemented. |
 | Cloud / CDN comparison | DNS resembles managed DNS, nginx resembles an edge/load balancer, and backends resemble application instances. A CDN can cache content geographically; this project does not deploy one. |
 | SMTP / IMAP / POP3 | SMTP sends mail; IMAP accesses/synchronizes server mailboxes; POP3 retrieves mail. Explain these course protocols without deploying mail services. |
+
+For the reported trace, `10.7.18.118:59218 → 10.7.31.46:8443` established TCP with SYN/SYN-ACK/ACK; 59218 was that connection's ephemeral source port. The DNS trace used Laptop 2 as client and Laptop 1 as resolver, with UDP 53 and TTL 30. Explain the two distinct exchanges and encrypted HTTP visibility.
+
+**Live submission demo used Option A — Stop Backend A.** nginx served only B during the stop and returned to A/B selection after A restarted. DNS, client-to-edge TCP, TLS, nginx and B stayed operational. The other failure scenarios are reference procedures, not reported completed live demos.
 
 ## Diagnose in order
 
@@ -40,7 +44,7 @@ This read-only helper checks DNS, system resolution, TCP, TLS and HTTP. Its expl
 |---|---|---|
 | Peer ping fails | Actual addresses/interface, subnet, shared LAN, peer isolation | Correct config/LAN reachability; record both real directions |
 | Direct DNS times out | Laptop 1 dnsmasq, port 53 and its runtime log | Start project DNS and resolve a conflicting listener |
-| Direct DNS works, system lookup fails | `scutil --dns`, network-service settings, DNS caches, VPN/secure DNS | Set project client DNS and flush caches |
+| Direct DNS works, system lookup fails | `scutil --dns`, network-service settings, DNS caches, VPN/secure DNS or MDM override | Set project client DNS; if MDM overrides it, use the project [scoped resolver](../dns/README.md#managed-mac--mdm-dns-override) and verify with dscacheutil |
 | DNS returns Laptop 1 | Rendered record and running dnsmasq | Render normal config, restart DNS, flush clients |
 | TCP edge connection fails | Destination IP/port and nginx listener | Start nginx on Laptop 2 after config validation |
 | TLS validation fails | SAN, anchor, expiry, Mac clock | Trust correct public certificate and use the configured hostname |
@@ -51,7 +55,7 @@ This read-only helper checks DNS, system resolution, TCP, TLS and HTTP. Its expl
 
 Rehearse explaining why stopping Backend A preserves DNS, but switching off Laptop 1 removes both services. Neither laptop is a redundant edge or DNS server. Describe only the failures and recovery you actually observed.
 
-The team uses two physical Macs and combines machine roles. The assignment's specific requirement asking two other Macs to use the DNS resolver cannot be literally demonstrated with two physical Macs and should be confirmed with faculty.
+This project uses Type 2 infrastructure: two physical macOS laptops with combined roles, as supported by the Phase 1 submission form.
 
 ## Primary references
 

@@ -477,8 +477,14 @@ class EntrypointTests(unittest.TestCase):
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name)
         for folder in ("backend", "dns", "nginx", "tls", "scripts"):
+            ignored = ["__pycache__", "runtime", "generated"]
+            if folder == "tls":
+                ignored.append("certs")
             shutil.copytree(ROOT / folder, self.root / folder,
-                            ignore=shutil.ignore_patterns("__pycache__", "runtime", "generated"))
+                            ignore=shutil.ignore_patterns(*ignored))
+        # Deployment certificates remain untouched; every test creates its own.
+        (self.root / "tls/certs").mkdir()
+        shutil.copy2(ROOT / "tls/certs/.gitkeep", self.root / "tls/certs/.gitkeep")
         text = (ROOT / "network.env.example").read_text()
         used = {53}
         for setting, default in (("BACKEND_A_PORT", 3001), ("BACKEND_B_PORT", 3002), ("HTTPS_PORT", 8443)):
@@ -547,9 +553,9 @@ class EntrypointTests(unittest.TestCase):
         self.command(sys.executable, str(configure), "--check")
         rendered = self.root / "dns/generated/dnsmasq.conf"
         original = rendered.read_text()
-        self.assertIn(f"host-record={self.config['APP_DOMAIN']},{self.config['EDGE_IP']},", original)
+        self.assertIn(f"address=/{self.config['APP_DOMAIN']}/{self.config['EDGE_IP']}", original)
         self.command(sys.executable, str(configure), "--record-laptop", "1", "--check")
-        self.assertIn(f"host-record={self.config['APP_DOMAIN']},{self.config['LAPTOP1_IP']},", rendered.read_text())
+        self.assertIn(f"address=/{self.config['APP_DOMAIN']}/{self.config['LAPTOP1_IP']}", rendered.read_text())
         self.command(sys.executable, str(configure), "--check")
         self.assertEqual(rendered.read_text(), original)
         self.command(sys.executable, str(self.root / "nginx/configure_nginx.py"))

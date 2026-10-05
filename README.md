@@ -1,10 +1,39 @@
-# Computer Networks course project — Phase 1
+# Computer Networks Phase 1 — Codexers
 
-Two members, two physical macOS laptops, one private service. Person A runs DNS, Backend A and the main client. Person B runs nginx, HTTPS, the load balancer, Backend B and the secondary client. See [ARCHITECTURE.md](ARCHITECTURE.md) for the topology.
+## Team
 
-The team uses two physical Macs and combines machine roles. The assignment's specific requirement asking two other Macs to use the DNS resolver cannot be literally demonstrated with two physical Macs and should be confirmed with faculty.
+**Team Name:** Codexers
 
-Code, templates, scripts and local tests are ready before deployment. The empty evidence directories are intentional: add real observations after both laptops are running. This guide covers Phase 1 only. Run commands from the repository root, the folder containing this README. Keep both laptops awake during demonstrations.
+**Infrastructure:** Type 2 — 2 physical macOS laptops with combined roles
+
+### Members
+
+- **Rakshita Polana — `<ENROLLMENT_NUMBER>` — Person A**
+  - Private DNS server
+  - Backend A
+  - Main client/testing
+  - Wireshark / DNS / TCP / TLS evidence
+- **Lakshya Choudhary — `<ENROLLMENT_NUMBER>` — Person B**
+  - nginx reverse proxy
+  - HTTPS/TLS
+  - Load balancer
+  - Backend B
+  - Client/testing
+
+This project uses Type 2 infrastructure: two physical macOS laptops with combined roles, as supported by the Phase 1 submission form's category **“Type 2 — 2 or 3 Macs with combined roles.”**
+
+## Completed Live Deployment
+
+| Host | Recorded LAN IP | Roles |
+|---|---|---|
+| Laptop 1 / Person A | `10.7.18.118` | dnsmasq, Backend A :3001, main client/testing |
+| Laptop 2 / Person B | `10.7.31.46` | nginx, HTTPS :8443, round-robin balancing, Backend B :3002, client/testing |
+
+The team completed LAN connectivity, private DNS, public-DNS NXDOMAIN comparison, validated HTTPS, A/B balancing, caching with ETag/304, DNS/TCP/TLS Wireshark captures, and the Backend A stop-and-restore failure demo. These are the team's reported live results; [the checklist](docs/EVALUATION_CHECKLIST.md) records them. Attach the real screenshots, terminal output and captures using [the evidence index](evidence/README.md); the checkout currently contains instructions and `.gitkeep` files, rather than those artifacts.
+
+Actual service names are `app.codexers.test` and `api.codexers.test`. These IPs belong to the recorded deployment and can change on another LAN. The [architecture](ARCHITECTURE.md) and [configuration bundle](docs/CONFIGURATION_BUNDLE.md) describe the same two-laptop setup. HTTP caching is demonstrated on `/cache-demo`.
+
+Use [Phase 1 Final Demo Commands](#phase-1-final-demo-commands) for the recording and the deployment steps below when recreating the setup. Run commands from the repository root, the folder containing this README. Keep both laptops awake during demonstrations. Reuse the existing working runtime configuration and certificates during the live session.
 
 ## STEP 1 — Connect both Macs to the same Wi-Fi/LAN/hotspot
 
@@ -62,11 +91,13 @@ Expected: replies from the peer and no packet loss on a healthy LAN. If ping fai
 ### RUN ON BOTH LAPTOPS
 
 ```sh
-cp network.env.example network.env
+if [ ! -f network.env ]; then
+  cp network.env.example network.env
+fi
 nano network.env
 ```
 
-Replace **every occurrence** of the Laptop 1 example address with its real address, and every occurrence of the Laptop 2 example address with its real address. The DNS and Backend A aliases must match Laptop 1; edge and Backend B aliases must match Laptop 2. Both Macs use the same values. Keep default ports 3001, 3002 and 8443 unless faculty agrees otherwise. The allowed edge substitutions are 8080/8443 instead of 80/443.
+`network.env.example` intentionally contains generic example values. For Codexers, set `TEAM_NAME=Codexers`, `APP_DOMAIN=app.codexers.test` and `API_DOMAIN=api.codexers.test`. Replace **every occurrence** of each example laptop address: Laptop 1 used `10.7.18.118`, and Laptop 2 used `10.7.31.46` in the recorded deployment. Use their current real addresses on another LAN. The DNS and Backend A aliases must match Laptop 1; edge and Backend B aliases must match Laptop 2. Both Macs use the same values, with backend ports 3001/3002 and HTTPS 8443. [All recorded variables](docs/CONFIGURATION_BUNDLE.md#recorded-deployment-variables).
 
 `network.env` is the **only editable runtime configuration** and is ignored by Git. Templates require no manual IP substitution. Set `TEAM_NAME`, `APP_DOMAIN` and `API_DOMAIN` together if you change the team name; use `.test`, not `.local`.
 
@@ -181,6 +212,8 @@ scutil --dns
 
 The script detects the macOS Wi-Fi network service, prints the old/new DNS settings, saves the original settings and points the client at `DNS_IP`. If detection is ambiguous, run `networksetup -listallnetworkservices` and pass `--service` with the exact active service name. Repeated setup does not overwrite the original backup. Browser DoH/Secure DNS or VPN overrides can bypass this setting; use system DNS for the project and confirm the actual path in capture.
 
+On the managed Mac, `networksetup` showed the project DNS but `scutil --dns` still showed institutional/public resolvers. Apply [Managed Mac / MDM DNS Override](dns/README.md#managed-mac--mdm-dns-override) only if this happens; it supplements this normal workflow with a domain-specific resolver.
+
 ## STEP 12 — Test domain resolution
 
 ### RUN ON BOTH LAPTOPS
@@ -192,7 +225,7 @@ dig "$API_DOMAIN" A
 ./scripts/test_dns.sh
 ```
 
-Expected: both A records contain the actual Laptop 2 `EDGE_IP`; the SERVER line identifies Laptop 1 `DNS_IP`. The script checks both project names over DNS UDP and TCP. `dig` tests DNS directly; the later HTTPS request also tests the actual application's resolver path.
+Expected: both A records contain Laptop 2 `EDGE_IP`, recorded as `10.7.31.46`. The script explicitly queries Laptop 1 `DNS_IP` over UDP and TCP. With normal client DNS, dig's SERVER line identifies Laptop 1. With the MDM scoped resolver, ordinary dig may still use the default resolver; use `dig @"$DNS_IP" "$APP_DOMAIN" A` for the private-server query and `dscacheutil -q host -a name "$APP_DOMAIN"` to verify macOS application resolution. The later HTTPS request uses that application resolver path.
 
 ## STEP 13 — Generate nginx config on Laptop 2
 
@@ -213,7 +246,7 @@ Creates ignored `nginx/generated/nginx.conf` with equal-weight backends, forward
 openssl x509 -in tls/certs/server.crt -noout -subject -dates -ext subjectAltName
 ```
 
-The default preserves the assignment's permitted OpenSSL self-signed server-certificate route, with SANs for **both** app and api and 90-day validity. Private key permissions are restrictive. The script refuses to overwrite existing material. Optional `--local-ca` creates a CA and signed server certificate; confirm that local-CA route with faculty as required by Task E before choosing it. See [tls/README.md](tls/README.md).
+These commands are for a new deployment; retain existing working certificate material for the final demo. The default generates an OpenSSL self-signed server certificate with SANs for **both** app and api and 90-day validity. Private key permissions are restrictive, and existing material is never silently overwritten. Optional `--local-ca` creates a CA and signed server certificate. See [tls/README.md](tls/README.md).
 
 ## STEP 15 — Trust the certificate
 
@@ -245,7 +278,7 @@ The script runs **nginx -t before starting** and fails clearly if validation fai
 ./scripts/test_https.sh
 ```
 
-Expected: trusted HTTPS for both app/api domains, HTTP200 and a backend identifier. Open the actual app domain with the configured HTTPS port in a browser as well; with default team/port the URL is `https://app.team1.test:8443`. Final application requests must use the domain.
+Expected: trusted HTTPS for both app/api domains, HTTP200 and a backend identifier. The recorded app URL is `https://app.codexers.test:8443`. Final application requests use the domain name and validate the certificate; never use `curl -k`.
 
 ## STEP 18 — Test load balancing
 
@@ -278,9 +311,9 @@ open -a Wireshark
 
 Follow [wireshark/README.md](wireshark/README.md) for exact capture commands and [filters.md](wireshark/filters.md) for analysis. Capture the real LAN interface **and loopback**: roles are co-located. Show DNS, SYN/SYN-ACK/ACK, TLS ClientHello/ServerHello/certificate, encrypted application data, ports and TCP sequence/ACK/window values. Use an additional validated TLS1.2 request for visible Certificate/ChangeCipherSpec; explain TLS1.3's encrypted handshake. Save actual captures/screenshots to `evidence/wireshark/`.
 
-## STEP 21 — Perform the five failure demos
+## STEP 21 — Perform the selected failure demo
 
-Use [docs/FAILURE_ANALYSIS.md](docs/FAILURE_ANALYSIS.md): wrong client DNS, wrong DNS record, one backend stopped, both stopped, and wrong destination port. Inject one fault at a time and restore before continuing. Keep DNS/nginx running when stopping only backend processes. Collect real observations in `evidence/failures/`.
+The submission form requires one selected Phase 1 failure demonstration. **Live submission demo used Option A — Stop Backend A.** Before the stop, nginx alternated A/B; while A was stopped, B served all requests; after restarting A, balancing resumed. Keep DNS, nginx and Backend B running. [FAILURE_ANALYSIS.md](docs/FAILURE_ANALYSIS.md) records this demonstration and retains four other reference scenarios without claiming they were demonstrated live.
 
 ## STEP 22 — Save evidence inside evidence/
 
@@ -297,6 +330,8 @@ sudo killall -HUP mDNSResponder
 ```
 
 Expected: exactly the previous manual DNS addresses or DHCP/automatic DNS is restored. The saved backup is removed only after the change succeeds. Certificate removal instructions are in [tls/remove_certificate.md](tls/remove_certificate.md).
+
+If you created `/etc/resolver/codexers.test` for the MDM workaround, also follow its [cleanup instructions](dns/README.md#cleanup) and flush DNS again. Restoring network-service DNS alone does not remove that scoped file.
 
 ## STEP 24 — Stop project services cleanly
 
@@ -326,36 +361,104 @@ This runs the relocated standard-library tests, real temporary backend/nginx/DNS
 
 Retained helper commands: `python3 scripts/_common.py diagnose` checks DNS→TCP→TLS→HTTP; `python3 scripts/_common.py bundle` writes an ignored source/evidence zip under `scripts/runtime/`, excluding private material and machine-specific config.
 
+## Phase 1 Final Demo Commands
+
+Run these on the deployed LAN after configuring system DNS and certificate trust. Use the existing public trust anchor if your curl build does not read macOS Keychain: add `--cacert tls/certs/server.crt`, or `--cacert tls/certs/ca.crt` for the CA route. This retains certificate and hostname validation. Never use `-k`.
+
+### DNS
+
+```sh
+dig app.codexers.test
+dig @8.8.8.8 app.codexers.test
+```
+
+The private resolver returns `10.7.31.46`; Google public DNS returned `NXDOMAIN` for the private `.test` name. If using the managed-Mac scoped resolver, show these additional checks because dig does not use macOS's domain-specific resolver routing:
+
+```sh
+dig @10.7.18.118 app.codexers.test
+dscacheutil -q host -a name app.codexers.test
+```
+
+### HTTPS
+
+```sh
+curl -v https://app.codexers.test:8443
+```
+
+Show successful certificate validation and HTTP response. Access by domain name, not by IP.
+
+### Load balancing
+
+```sh
+for i in {1..6}; do \
+  echo "Request $i"; \
+  curl -s -D - -o /dev/null \
+  https://app.codexers.test:8443/api/status | \
+  grep -i "X-Backend"; \
+done
+```
+
+Expected: both A and B appear, alternating on a quiet healthy system.
+
+### Caching
+
+**HTTP caching is demonstrated on `/cache-demo`.**
+
+```sh
+curl -sI https://app.codexers.test:8443/cache-demo
+./scripts/test_caching.sh
+```
+
+Expected headers include `Cache-Control: public, max-age=60`, `ETag: "..."`, `X-Backend: A` or `B`, and `Date`. The dots indicate the actual tag to read from the response; they are not a value to send. The script extracts the real ETag, sends it in `If-None-Match`, and verifies `304 Not Modified` with no body. `/api/status` intentionally returns `Cache-Control: no-store` so caching does not hide backend selection. [Cache request flow](docs/REQUEST_FLOW.md#cache-path).
+
+### Failure demo
+
+Stop Backend A with **Ctrl+C in its Laptop 1 terminal**. Run the load-balancing loop again: expected `X-Backend: B` only. DNS, client-to-nginx TCP, TLS, nginx and Backend B remain working.
+
+Restart on Laptop 1:
+
+```sh
+python3 backend/backend_a.py
+```
+
+Allow more than five seconds for nginx's passive failure window, then repeat the loop: A and B both return. Laptop 2's backend launch command remains:
+
+```sh
+python3 backend/backend_b.py
+```
+
+## 5-Minute Demo Recording
+
+Name the file **`CN_Phase1_[Section]_Codexers_Type2.mp4`**, replacing `[Section]` with your actual section.
+
+| Time | Show |
+|---|---|
+| 0:00–2:00 | Team introduction, Type 2 architecture, actual LAN IPs/ping, private DNS and public NXDOMAIN |
+| 2:00–4:00 | Validated HTTPS, nginx, A/B balancing, `/cache-demo` and 304, Wireshark DNS/TCP/TLS |
+| 4:00–5:00 | Stop Backend A → only Backend B → restore Backend A and A/B selection |
+
+- Do not use `curl -k`.
+- Access the service by domain name, not IP.
+- Show actual terminal output and recorded packets.
+- Maximum duration: **5 minutes**; maximum file size: **500 MB**.
+- Upload to Google Drive with access set to **anyone with the link**, verify access, then submit the link in the Google Form.
+
+Video upload and Google Form submission remain unchecked in [the checklist](docs/EVALUATION_CHECKLIST.md). Both members should understand the full system for the individual viva; use [the notes](docs/VIVA_NOTES.md).
+
 ## GitHub Workflow
 
-You can push the **code and configuration templates before live deployment**: backend source, DNS/nginx templates and scripts, TLS scripts, documentation, Wireshark instructions, empty evidence folders and `network.env.example`. The original assignment PDF stays outside this repository.
+The repository is [Rakshita-0023/cn-project](https://github.com/Rakshita-0023/cn-project), with branch `main`. Commit source, templates, documentation, and reviewed genuine evidence. The original assignment PDF stays outside this repository.
 
-Do not commit `network.env`, TLS keys, generated certificates, PID files, logs, generated machine configs, temporary directories or `.DS_Store`. `.gitignore` covers them; source templates and documentation remain visible. Review what you stage:
+Do not commit `network.env`, TLS keys, generated certificates, PID files, logs, generated machine configs, DNS backups, temporary directories or `.DS_Store`. The current `.gitignore` covers these while keeping source templates, `network.env.example`, documentation, and safe evidence PNG/text files visible.
 
 ```sh
-git init -b main
+git switch main
 git add .
+git diff --cached --check
+git diff --cached --stat
 git status --short
-git diff --cached --stat
-git commit -m "Prepare two-laptop Phase 1 networking project"
+git commit -m "Polish Codexers Phase 1 submission documentation"
+git push origin main
 ```
 
-Create your empty GitHub repository, then use its actual URL:
-
-```sh
-printf 'Paste your actual GitHub repository URL: '
-read -r GITHUB_REPO_URL
-git remote add origin "$GITHUB_REPO_URL"
-git push -u origin main
-```
-
-After deployment, add genuine screenshots, safe terminal `.txt` output and faculty-requested captures. Check for unrelated/private data before sharing. Then:
-
-```sh
-git add evidence
-git diff --cached --stat
-git commit -m "Add real Phase 1 deployment evidence"
-git push
-```
-
-Every member should understand the complete system for the individual viva. [Concise notes](docs/VIVA_NOTES.md).
+When attaching real evidence, review each file first, then use `git add evidence`, review the staged diff, commit and push. Exclude unrelated personal traffic and private material. Do not replace missing captures with sample output. Enrollment numbers and the final video section label must be filled manually.

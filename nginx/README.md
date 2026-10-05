@@ -1,4 +1,6 @@
-# Edge on Laptop 2 / Person B
+# Codexers edge on Laptop 2 / Person B
+
+The recorded Type 2 deployment used Laptop 2 / Lakshya Choudhary at `10.7.31.46:8443` for HTTPS. App/API names were `app.codexers.test` and `api.codexers.test`; upstreams were `10.7.18.118:3001` (A) and `10.7.31.46:3002` (B). These are deployment notes; rendering still uses current `network.env` values.
 
 The preserved nginx configuration is now a source template plus a renderer. It uses `BACKEND_A_IP:BACKEND_A_PORT` and `BACKEND_B_IP:BACKEND_B_PORT`, default equal-weight round robin, TLS termination and an HTTP-to-HTTPS redirect. Normal app access is by `APP_DOMAIN` or `API_DOMAIN` over `HTTPS_PORT`.
 
@@ -16,6 +18,6 @@ Generated file: ignored `nginx/generated/nginx.conf`. Project logs, PID and temp
 
 Stop: `./nginx/stop_nginx.sh`. After rendering a change, use `./nginx/reload_nginx.sh`; it validates the candidate before signaling the verified project master. For privileged ports the script requests sudo when needed.
 
-Passive failure detection uses `max_fails=1`, `fail_timeout=5s` and bounded retries for safe read requests. This supports the required Phase 1 stopped-backend demonstrations. Both upstreams unavailable yields a clear HTTP502 JSON response. A healthy quiet single worker alternates; concurrent traffic can change the sequence. A restarted backend may need more than five seconds before rejoining selection.
+Passive failure detection uses `max_fails=1`, `fail_timeout=5s` and bounded retries for safe read requests. **Live submission demo used Option A — Stop Backend A**: B continued serving, then A/B selection resumed after restoration. Both upstreams unavailable yields a clear HTTP502 JSON response, retained as a reference scenario rather than a claimed live result. A healthy quiet single worker alternates; concurrent traffic can change the sequence. A restarted backend may need more than five seconds before rejoining selection.
 
 If `nginx -V` lists `--with-http_v2_module` and nginx is at least1.25.1, `python3 nginx/configure_nginx.py --http2` enables HTTP/2. Validate/reload, then show actual negotiation using curl `--http2` with the trusted certificate. HTTP/1.1 remains required; HTTP/3 is explanation-only.
