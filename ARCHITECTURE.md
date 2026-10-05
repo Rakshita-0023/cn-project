@@ -1,6 +1,6 @@
 # Codexers — Type 2 Phase 1 architecture
 
-This project uses Type 2 infrastructure: two physical macOS laptops with combined roles, as supported by the Phase 1 submission form. Rakshita Polana is Person A; Lakshya Choudhary is Person B. Roles share hosts because there are two physical Macs.
+This project uses Type 2 infrastructure: two physical macOS laptops with combined roles, as supported by the Phase 1 submission form. Polana Rakshita is Person A; Lakshya Choudhary is Person B. Roles share hosts because there are two physical Macs.
 
 The addresses below are the **actual IPs used during the recorded Phase 1 deployment**. They can change on another LAN; update the ignored `network.env` and render configurations locally when redeploying.
 

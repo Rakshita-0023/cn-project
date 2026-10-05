@@ -8,12 +8,12 @@
 
 ### Members
 
-- **Rakshita Polana — `<ENROLLMENT_NUMBER>` — Person A**
+- **Polana Rakshita — 2401020044 — Person A**
   - Private DNS server
   - Backend A
   - Main client/testing
   - Wireshark / DNS / TCP / TLS evidence
-- **Lakshya Choudhary — `<ENROLLMENT_NUMBER>` — Person B**
+- **Lakshya Choudhary — 2401020036 — Person B**
   - nginx reverse proxy
   - HTTPS/TLS
   - Load balancer
@@ -461,4 +461,4 @@ git commit -m "Polish Codexers Phase 1 submission documentation"
 git push origin main
 ```
 
-When attaching real evidence, review each file first, then use `git add evidence`, review the staged diff, commit and push. Exclude unrelated personal traffic and private material. Do not replace missing captures with sample output. Enrollment numbers and the final video section label must be filled manually.
+When attaching real evidence, review each file first, then use `git add evidence`, review the staged diff, commit and push. Exclude unrelated personal traffic and private material. Do not replace missing captures with sample output. The final video section label must be filled manually.

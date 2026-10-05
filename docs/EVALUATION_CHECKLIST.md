@@ -49,4 +49,4 @@ Checked items record the team's reported successful live deployment. Six origina
 | Selected failure | **Option A — Stop Backend A**, B continues, restart A and balancing resumes |
 | Deliverables | Architecture, configuration bundle, source, evidence index, final video and form |
 
-The form requires one selected failure demonstration. The other scenarios retained in [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md) are reference procedures and are not marked as completed live. Use [the recording plan](../README.md#5-minute-demo-recording), fill both enrollment numbers and the section label, attach real evidence, then upload the video and submit the form.
+The form requires one selected failure demonstration. The other scenarios retained in [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md) are reference procedures and are not marked as completed live. Use [the recording plan](../README.md#5-minute-demo-recording), fill the section label, attach real evidence, then upload the video and submit the form.

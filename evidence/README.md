@@ -49,4 +49,4 @@ The six otherwise empty category directories are retained with `.gitkeep`. Copy 
 
 Keep `network.env`, private keys, generated certificates, runtime logs/PIDs, saved DNS settings and credentials out of Git. The attached screenshots include terminal identities, LAN/MAC addresses and, in the background view, public server addresses; they are preserved as supplied. Review any additional screenshots and packet captures before publishing them.
 
-See [the Wireshark guide](../wireshark/README.md), [the live failure account](../docs/FAILURE_ANALYSIS.md), and [the recording plan](../README.md#5-minute-demo-recording). Enrollment numbers, the section label, the final video upload and the form submission remain separate submission tasks.
+See [the Wireshark guide](../wireshark/README.md), [the live failure account](../docs/FAILURE_ANALYSIS.md), and [the recording plan](../README.md#5-minute-demo-recording). The section label, the final video upload and the form submission remain separate submission tasks.

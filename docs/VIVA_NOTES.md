@@ -1,6 +1,6 @@
 # Codexers — Phase 1 viva notes
 
-Rakshita Polana (Person A) and Lakshya Choudhary (Person B) should explain the full Type 2 system, including components running on the other laptop. Laptop 1 (`10.7.18.118`) hosted DNS/Backend A; Laptop 2 (`10.7.31.46`) hosted nginx/TLS/Backend B. App/API names are `app.codexers.test` and `api.codexers.test`.
+Polana Rakshita (Person A) and Lakshya Choudhary (Person B) should explain the full Type 2 system, including components running on the other laptop. Laptop 1 (`10.7.18.118`) hosted DNS/Backend A; Laptop 2 (`10.7.31.46`) hosted nginx/TLS/Backend B. App/API names are `app.codexers.test` and `api.codexers.test`.
 
 | Topic | Concise answer |
 |---|---|

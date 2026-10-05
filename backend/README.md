@@ -1,6 +1,6 @@
 # Codexers backend services
 
-The recorded Type 2 deployment ran Backend A on Laptop 1 / Rakshita Polana (`10.7.18.118:3001`) and Backend B on Laptop 2 / Lakshya Choudhary (`10.7.31.46:3002`). These recorded addresses can change; source code continues to read the runtime ports rather than fixing LAN addresses.
+The recorded Type 2 deployment ran Backend A on Laptop 1 / Polana Rakshita (`10.7.18.118:3001`) and Backend B on Laptop 2 / Lakshya Choudhary (`10.7.31.46:3002`). These recorded addresses can change; source code continues to read the runtime ports rather than fixing LAN addresses.
 
 Person A runs `python3 backend/backend_a.py` on Laptop 1; Person B runs `python3 backend/backend_b.py` on Laptop 2. Run from the root; the shell start scripts also work from other directories. Both bind IPv4 `0.0.0.0`, which makes them LAN-accessible. Ports come from `network.env`; without that file the entry points default to 3001/3002, enabling a quick local backend check.
 
