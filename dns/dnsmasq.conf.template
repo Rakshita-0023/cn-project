@@ -1,6 +1,7 @@
 # Rendered by configure_dns.py. DNS on Laptop 1, no DHCP service.
 port=53
 listen-address={{DNS_IP}}
+interface=en0
 bind-interfaces
 no-resolv
 no-hosts
@@ -8,8 +9,8 @@ domain-needed
 bogus-priv
 local=/{{ZONE}}/
 local-ttl={{DNS_TTL}}
-host-record={{APP_DOMAIN}},{{EDGE_IP}},{{DNS_TTL}}
-host-record={{API_DOMAIN}},{{EDGE_IP}},{{DNS_TTL}}
+address=/{{APP_DOMAIN}}/{{EDGE_IP}}
+address=/{{API_DOMAIN}}/{{EDGE_IP}}
 log-queries=extra
 log-facility={{DNS_LOG}}
 pid-file={{DNS_PID}}
