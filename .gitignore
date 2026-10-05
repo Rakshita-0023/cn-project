@@ -1,0 +1,16 @@
+/network.env
+.DS_Store
+*.log
+*.pid
+__pycache__/
+*.pyc
+*.key
+*.pem
+/backend/runtime/
+/dns/runtime/
+/dns/generated/
+/nginx/runtime/
+/nginx/generated/
+/scripts/runtime/
+/tls/certs/*
+!/tls/certs/.gitkeep
