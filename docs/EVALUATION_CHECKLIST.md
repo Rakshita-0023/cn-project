@@ -2,7 +2,7 @@
 
 **Infrastructure:** Type 2 — 2 physical macOS laptops with combined roles, supported by the Phase 1 submission form.
 
-Checked items record the team's reported successful live deployment. They do not imply that screenshots, terminal-output files or packet captures have already been committed. The evidence directories currently contain the index and `.gitkeep` files; attach the actual artifacts using [evidence/README.md](../evidence/README.md).
+Checked items record the team's reported successful live deployment. Six original screenshots are attached: bidirectional ping results, TCP and TLS Wireshark views, and one background TLS view. The remaining checked results are still team-reported, with no corresponding attachments in this checkout. [The evidence index](../evidence/README.md) lists the actual files and missing attachments; the background view is not project-handshake proof.
 
 - [x] Two laptops connected to same LAN
 - [x] Laptop 1 IP recorded: `10.7.18.118`

@@ -1,6 +1,6 @@
 # Codexers — Phase 1 Wireshark observations and capture guide
 
-The team completed DNS, TCP and TLS captures during the recorded Type 2 deployment. The observations below use the real addresses and source port supplied by the team. Actual screenshots/capture files are not yet attached in this checkout; add the saved artifacts under `evidence/wireshark/` using [the evidence index](../evidence/README.md).
+The team reports completing DNS, TCP and TLS captures during the recorded Type 2 deployment. Attached [TCP](../evidence/wireshark/tcp-handshake.png) and [TLS](../evidence/wireshark/tls-handshake.png) screenshots show the real client/edge addresses and handshake details below. [The evidence index](../evidence/README.md) also preserves an additional filtered TLS view and a broad background-traffic view. A DNS screenshot and original packet-capture files are not attached in this checkout.
 
 ## Recorded connection details
 
@@ -11,7 +11,7 @@ The team completed DNS, TCP and TLS captures during the recorded Type 2 deployme
 | HTTPS destination | TCP 8443 |
 | Private name | `app.codexers.test` → `10.7.31.46` |
 
-The recorded DNS exchange was **Laptop 2 client → Laptop 1 DNS server**, using UDP destination port 53. The reply mapped `app.codexers.test` to `10.7.31.46` with TTL 30. This DNS exchange is separate from the main client's HTTPS connection.
+The team-reported DNS exchange was **Laptop 2 client → Laptop 1 DNS server**, using UDP destination port 53. The reported reply mapped `app.codexers.test` to `10.7.31.46` with TTL 30. This DNS exchange is separate from the main client's HTTPS connection and is not visible in the attached TCP/TLS screenshots.
 
 The observed client-to-edge TCP handshake was:
 
@@ -121,6 +121,6 @@ Select a relevant packet, note its `tcp.stream` number, and filter that stream. 
 
 nginx terminates TLS. Its separate backend HTTP can show readable headers and `X-Backend`; client-side HTTPS payload remains encrypted. The [request flow](../docs/REQUEST_FLOW.md) explains the boundary. Optional HTTP/2 should only be claimed if enabled and actually negotiated.
 
-Save original reviewed captures and annotated screenshots such as `dns.png`, `tcp-handshake.png`, and `tls-handshake.png`, plus a short `.txt` index with packet numbers/stream IDs under `evidence/wireshark/`. Put the selected Backend A stop-and-restore evidence under `evidence/failures/`. Never create a diagram or sample output and present it as a live capture.
+The attached [TCP handshake](../evidence/wireshark/tcp-handshake.png), [primary TLS view](../evidence/wireshark/tls-handshake.png) and [additional TLS view](../evidence/wireshark/tls-handshake-serverhello-selected.png) are indexed in [evidence/README.md](../evidence/README.md). The [background TLS view](../evidence/wireshark/tls-background-traffic.png) shows unrelated Internet traffic and is not project-handshake proof. Add the actual saved DNS screenshot and reviewed original captures if required; update the index with their real filenames and packet/stream references. Put the selected Backend A stop-and-restore evidence under `evidence/failures/`. Never present sample output as a live capture.
 
 Technical references: [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/), [TLS 1.3](https://www.rfc-editor.org/rfc/rfc8446.html), and [TLS 1.2](https://www.rfc-editor.org/rfc/rfc5246.html).

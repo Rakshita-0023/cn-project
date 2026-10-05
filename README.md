@@ -29,7 +29,7 @@ This project uses Type 2 infrastructure: two physical macOS laptops with combine
 | Laptop 1 / Person A | `10.7.18.118` | dnsmasq, Backend A :3001, main client/testing |
 | Laptop 2 / Person B | `10.7.31.46` | nginx, HTTPS :8443, round-robin balancing, Backend B :3002, client/testing |
 
-The team completed LAN connectivity, private DNS, public-DNS NXDOMAIN comparison, validated HTTPS, A/B balancing, caching with ETag/304, DNS/TCP/TLS Wireshark captures, and the Backend A stop-and-restore failure demo. These are the team's reported live results; [the checklist](docs/EVALUATION_CHECKLIST.md) records them. Attach the real screenshots, terminal output and captures using [the evidence index](evidence/README.md); the checkout currently contains instructions and `.gitkeep` files, rather than those artifacts.
+The team completed LAN connectivity, private DNS, public-DNS NXDOMAIN comparison, validated HTTPS, A/B balancing, caching with ETag/304, DNS/TCP/TLS Wireshark captures, and the Backend A stop-and-restore failure demo. These are the team's reported live results; [the checklist](docs/EVALUATION_CHECKLIST.md) records them. Six original screenshots are now attached: two ping results, TCP and TLS Wireshark views, and a clearly labeled background TLS view. [The evidence index](evidence/README.md) links every attached file and identifies the remaining evidence to attach.
 
 Actual service names are `app.codexers.test` and `api.codexers.test`. These IPs belong to the recorded deployment and can change on another LAN. The [architecture](ARCHITECTURE.md) and [configuration bundle](docs/CONFIGURATION_BUNDLE.md) describe the same two-laptop setup. HTTP caching is demonstrated on `/cache-demo`.
 
