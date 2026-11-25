@@ -1,7 +1,7 @@
 # Private Network Service Platform - Phase 1 and Phase 2
 
-A two-Mac Computer Networks project by **Codexers**: **Rakshita** and
-**Lakshya Choudhary**. DNS, TCP, TLS, HTTP, load balancing, caching, isolation
+A two-Mac Computer Networks project by **Codexers**: [**Rakshita**](https://github.com/Rakshita-0023) and
+[**Lakshya**](https://github.com/Lakshyalamba). DNS, TCP, TLS, HTTP, load balancing, caching, isolation
 and recovery are the project; the backends intentionally remain simple.
 
 **Submission status:** source and historical live evidence are organized for
@@ -12,6 +12,13 @@ pending. Publishing this repository does not certify current deployment health.
 See [the submission checklist](SUBMISSION_CHECKLIST.md) for exact remaining gaps
 and safe collection commands, and [the GitHub audit](GITHUB_AUDIT.md) for privacy
 review and publication validation.
+
+## Team credit
+
+Both members contributed to implementation, configuration and live integration.
+[CONTRIBUTORS.md](CONTRIBUTORS.md) maps their confirmed responsibilities to the
+source and evidence; [CONTRIBUTING.md](CONTRIBUTING.md) defines focused commits
+and consent-based human authorship. Historical commit authors are preserved.
 
 ## Start the review here
 
