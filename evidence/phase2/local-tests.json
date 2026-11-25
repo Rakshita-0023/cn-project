@@ -1,5 +1,5 @@
 {
-  "observed_at": "2026-11-25T14:09:51.200728+05:30",
+  "observed_at": "2026-11-25T16:20:18.171542+05:30",
   "scope": "local loopback only",
   "run": 38,
   "failures": 0,
@@ -10,25 +10,25 @@
     {
       "test": "test_local.BackendTests.test_cache_is_consistent_across_backends_and_supports_conditional_get",
       "status": "PASS",
-      "seconds": 0.515,
+      "seconds": 0.526,
       "reason": null
     },
     {
       "test": "test_local.BackendTests.test_head_has_representation_headers_and_no_body",
       "status": "PASS",
-      "seconds": 1.008,
+      "seconds": 1.006,
       "reason": null
     },
     {
       "test": "test_local.BackendTests.test_required_endpoints_identify_each_instance",
       "status": "PASS",
-      "seconds": 1.018,
+      "seconds": 1.022,
       "reason": null
     },
     {
       "test": "test_local.ClientDNSStateTests.test_automatic_dns_restores_with_empty_and_failed_restore_keeps_backup",
       "status": "PASS",
-      "seconds": 0.011,
+      "seconds": 0.014,
       "reason": null
     },
     {
@@ -40,13 +40,13 @@
     {
       "test": "test_local.ClientDNSStateTests.test_stop_refuses_an_unrelated_pid",
       "status": "PASS",
-      "seconds": 0.003,
+      "seconds": 0.002,
       "reason": null
     },
     {
       "test": "test_local.ConfigurationTests.test_alias_mismatch_is_rejected",
       "status": "PASS",
-      "seconds": 0.002,
+      "seconds": 0.001,
       "reason": null
     },
     {
@@ -88,61 +88,61 @@
     {
       "test": "test_local.EntrypointTests.test_direct_entries_and_shell_launchers_use_environment_and_clean_pid",
       "status": "PASS",
-      "seconds": 2.522,
+      "seconds": 2.166,
       "reason": null
     },
     {
       "test": "test_local.EntrypointTests.test_optional_ca_chain_sans_permissions_and_no_silent_rotation",
       "status": "PASS",
-      "seconds": 0.625,
+      "seconds": 0.843,
       "reason": null
     },
     {
       "test": "test_local.EntrypointTests.test_real_project_nginx_start_reload_stop_lifecycle",
       "status": "PASS",
-      "seconds": 0.216,
+      "seconds": 0.246,
       "reason": null
     },
     {
       "test": "test_local.EntrypointTests.test_rendering_commands_and_start_reject_invalid_nginx",
       "status": "PASS",
-      "seconds": 1.11,
+      "seconds": 1.125,
       "reason": null
     },
     {
       "test": "test_local.NetworkIntegrationTests.test_real_dnsmasq_answers_both_names_with_ttl_over_udp_and_tcp",
       "status": "PASS",
-      "seconds": 0.198,
+      "seconds": 0.194,
       "reason": null
     },
     {
       "test": "test_local.NetworkIntegrationTests.test_real_nginx_tls_round_robin_caching_and_failures",
       "status": "PASS",
-      "seconds": 8.127,
+      "seconds": 7.516,
       "reason": null
     },
     {
       "test": "phase2.tests.test_phase2.DNSIntegrationTests.test_both_resolvers_answer_identically_udp_tcp_and_primary_stop",
       "status": "PASS",
-      "seconds": 1.416,
+      "seconds": 1.404,
       "reason": null
     },
     {
       "test": "phase2.tests.test_phase2.DNSIntegrationTests.test_real_forwarding_client_falls_back_after_primary_stops",
       "status": "PASS",
-      "seconds": 1.551,
+      "seconds": 1.536,
       "reason": null
     },
     {
       "test": "phase2.tests.test_phase2.DNSIntegrationTests.test_real_ttl_expiry_record_change_and_cache_flush",
       "status": "PASS",
-      "seconds": 3.174,
+      "seconds": 4.152,
       "reason": null
     },
     {
       "test": "phase2.tests.test_phase2.EdgeIntegrationTests.test_two_real_edges_tls_failover_recovery_and_caching",
       "status": "PASS",
-      "seconds": 4.649,
+      "seconds": 4.812,
       "reason": null
     },
     {
@@ -154,7 +154,7 @@
     {
       "test": "phase2.tests.test_phase2.SafetyTests.test_cli_rejects_invalid_counts_and_runs_from_other_directory",
       "status": "PASS",
-      "seconds": 0.193,
+      "seconds": 0.209,
       "reason": null
     },
     {
@@ -178,7 +178,7 @@
     {
       "test": "phase2.tests.test_phase2.SafetyTests.test_failure_demo_restores_backend_even_when_the_probe_fails",
       "status": "PASS",
-      "seconds": 0.001,
+      "seconds": 0.0,
       "reason": null
     },
     {
@@ -202,7 +202,7 @@
     {
       "test": "phase2.tests.test_phase2.SafetyTests.test_real_pf_syntax_check_without_loading_rules",
       "status": "PASS",
-      "seconds": 0.012,
+      "seconds": 0.009,
       "reason": null
     },
     {
@@ -220,7 +220,7 @@
     {
       "test": "phase2.tests.test_phase2.ServiceIntegrationTests.test_listener_inspection_rejects_wrong_socket_pid_and_inspection_errors",
       "status": "PASS",
-      "seconds": 0.002,
+      "seconds": 0.001,
       "reason": null
     },
     {
@@ -232,7 +232,7 @@
     {
       "test": "phase2.tests.test_phase2.ServiceIntegrationTests.test_real_backend_start_conflict_restart_and_owned_stop",
       "status": "PASS",
-      "seconds": 0.535,
+      "seconds": 0.544,
       "reason": null
     }
   ]

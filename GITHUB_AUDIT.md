@@ -86,3 +86,29 @@ Publishing the source does not authorize live repairs or certify those items.
 Git attributes preserve literal evidence whitespace (including empty TSV fields)
 and treat PDF/image/capture deliverables as binary. Review-only config specimens
 have normalized final newlines; raw command observations are not reformatted.
+
+## Contribution presentation follow-up - 25 November 2026
+
+The published baseline 8927dc0 was clean; no outstanding networking/PF/source
+changes remained to split. It is preserved, not retroactively rewritten.
+The team confirmed Lakshya's genuine DNS, Backend B, nginx, integration, PF,
+HA/migration and live-testing contributions. CONTRIBUTORS.md maps this work
+without claiming sole file/line authorship or manufacturing peer evidence.
+
+New focused changes:
+
+- `88953472e4b99a3131dc00d93890304d1bb0de4f`: contribution workflow/identity guidance, authored and committed by Rakshita.
+- `ccf767959eefc624e4019749d5962656d773deb2`: reviewed contribution record and README profile links, authored by
+  Lakshya with Rakshita as integrating committer. Lakshya's content and author-email
+  approval were explicitly relayed by Rakshita before committing. This is a real
+  new documentation contribution, not a reassignment of historical code authors.
+- A separate validation commit records this follow-up audit and the genuine
+  38/38 local regression result observed 2026-11-25T16:20:18.171542+05:30.
+
+No empty/fake phase-specific commits, backdating, history rewriting or automated
+assistant author/co-author trailers are used. GitHub already linked public commits
+using the approved email to Lakshyalamba; the new repository commit's linked
+author is verified after normal push. Contributors statistics may refresh
+separately; no UI refresh is assumed from README credit alone. This follow-up
+did not alter live services, DNS/PF settings or the historical live-readiness
+limitations recorded in SUBMISSION_CHECKLIST.md.

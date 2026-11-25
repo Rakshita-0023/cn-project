@@ -1,6 +1,6 @@
 # Phase 2 test results
 
-Observed: 2026-11-25T14:09:51.200728+05:30
+Observed: 2026-11-25T16:20:18.171542+05:30
 
 **Executed locally: 38/38 passed; 0 failures; 0 errors; 0 skipped.**
 
@@ -10,48 +10,49 @@ Actual command: `make test-local`. [Complete text output](../../evidence/phase2/
 
 | Test case | Actual result | Seconds |
 |---|---|---|
-| `test_local.BackendTests.test_cache_is_consistent_across_backends_and_supports_conditional_get` | PASS | 0.515 |
-| `test_local.BackendTests.test_head_has_representation_headers_and_no_body` | PASS | 1.008 |
-| `test_local.BackendTests.test_required_endpoints_identify_each_instance` | PASS | 1.018 |
-| `test_local.ClientDNSStateTests.test_automatic_dns_restores_with_empty_and_failed_restore_keeps_backup` | PASS | 0.011 |
+| `test_local.BackendTests.test_cache_is_consistent_across_backends_and_supports_conditional_get` | PASS | 0.526 |
+| `test_local.BackendTests.test_head_has_representation_headers_and_no_body` | PASS | 1.006 |
+| `test_local.BackendTests.test_required_endpoints_identify_each_instance` | PASS | 1.022 |
+| `test_local.ClientDNSStateTests.test_automatic_dns_restores_with_empty_and_failed_restore_keeps_backup` | PASS | 0.014 |
 | `test_local.ClientDNSStateTests.test_preserves_manual_ipv4_ipv6_settings_across_repeated_changes` | PASS | 0.005 |
-| `test_local.ClientDNSStateTests.test_stop_refuses_an_unrelated_pid` | PASS | 0.003 |
-| `test_local.ConfigurationTests.test_alias_mismatch_is_rejected` | PASS | 0.002 |
+| `test_local.ClientDNSStateTests.test_stop_refuses_an_unrelated_pid` | PASS | 0.002 |
+| `test_local.ConfigurationTests.test_alias_mismatch_is_rejected` | PASS | 0.001 |
 | `test_local.ConfigurationTests.test_domain_injection_and_non_test_domain_are_rejected` | PASS | 0.003 |
 | `test_local.ConfigurationTests.test_duplicates_unknown_keys_shell_expressions_and_ports_are_rejected` | PASS | 0.004 |
 | `test_local.ConfigurationTests.test_example_environment_parses_and_aliases_match` | PASS | 0.000 |
 | `test_local.ConfigurationTests.test_loopback_is_rejected_for_physical_deployment` | PASS | 0.001 |
 | `test_local.ConfigurationTests.test_missing_runtime_environment_is_rejected` | PASS | 0.000 |
 | `test_local.ConfigurationTests.test_quoted_values_comments_and_upstream_dns` | PASS | 0.001 |
-| `test_local.EntrypointTests.test_direct_entries_and_shell_launchers_use_environment_and_clean_pid` | PASS | 2.522 |
-| `test_local.EntrypointTests.test_optional_ca_chain_sans_permissions_and_no_silent_rotation` | PASS | 0.625 |
-| `test_local.EntrypointTests.test_real_project_nginx_start_reload_stop_lifecycle` | PASS | 0.216 |
-| `test_local.EntrypointTests.test_rendering_commands_and_start_reject_invalid_nginx` | PASS | 1.110 |
-| `test_local.NetworkIntegrationTests.test_real_dnsmasq_answers_both_names_with_ttl_over_udp_and_tcp` | PASS | 0.198 |
-| `test_local.NetworkIntegrationTests.test_real_nginx_tls_round_robin_caching_and_failures` | PASS | 8.127 |
-| `phase2.tests.test_phase2.DNSIntegrationTests.test_both_resolvers_answer_identically_udp_tcp_and_primary_stop` | PASS | 1.416 |
-| `phase2.tests.test_phase2.DNSIntegrationTests.test_real_forwarding_client_falls_back_after_primary_stops` | PASS | 1.551 |
-| `phase2.tests.test_phase2.DNSIntegrationTests.test_real_ttl_expiry_record_change_and_cache_flush` | PASS | 3.174 |
-| `phase2.tests.test_phase2.EdgeIntegrationTests.test_two_real_edges_tls_failover_recovery_and_caching` | PASS | 4.649 |
+| `test_local.EntrypointTests.test_direct_entries_and_shell_launchers_use_environment_and_clean_pid` | PASS | 2.166 |
+| `test_local.EntrypointTests.test_optional_ca_chain_sans_permissions_and_no_silent_rotation` | PASS | 0.843 |
+| `test_local.EntrypointTests.test_real_project_nginx_start_reload_stop_lifecycle` | PASS | 0.246 |
+| `test_local.EntrypointTests.test_rendering_commands_and_start_reject_invalid_nginx` | PASS | 1.125 |
+| `test_local.NetworkIntegrationTests.test_real_dnsmasq_answers_both_names_with_ttl_over_udp_and_tcp` | PASS | 0.194 |
+| `test_local.NetworkIntegrationTests.test_real_nginx_tls_round_robin_caching_and_failures` | PASS | 7.516 |
+| `phase2.tests.test_phase2.DNSIntegrationTests.test_both_resolvers_answer_identically_udp_tcp_and_primary_stop` | PASS | 1.404 |
+| `phase2.tests.test_phase2.DNSIntegrationTests.test_real_forwarding_client_falls_back_after_primary_stops` | PASS | 1.536 |
+| `phase2.tests.test_phase2.DNSIntegrationTests.test_real_ttl_expiry_record_change_and_cache_flush` | PASS | 4.152 |
+| `phase2.tests.test_phase2.EdgeIntegrationTests.test_two_real_edges_tls_failover_recovery_and_caching` | PASS | 4.812 |
 | `phase2.tests.test_phase2.SafetyTests.test_cleanup_continues_without_config_and_after_rollback_error` | PASS | 0.001 |
-| `phase2.tests.test_phase2.SafetyTests.test_cli_rejects_invalid_counts_and_runs_from_other_directory` | PASS | 0.193 |
+| `phase2.tests.test_phase2.SafetyTests.test_cli_rejects_invalid_counts_and_runs_from_other_directory` | PASS | 0.209 |
 | `phase2.tests.test_phase2.SafetyTests.test_config_defaults_and_rejects_unsafe_values` | PASS | 0.002 |
 | `phase2.tests.test_phase2.SafetyTests.test_diagnostics_continue_to_http_after_dns_and_tcp_fail` | PASS | 0.002 |
 | `phase2.tests.test_phase2.SafetyTests.test_failed_record_publication_restores_original_record_state` | PASS | 0.001 |
-| `phase2.tests.test_phase2.SafetyTests.test_failure_demo_restores_backend_even_when_the_probe_fails` | PASS | 0.001 |
+| `phase2.tests.test_phase2.SafetyTests.test_failure_demo_restores_backend_even_when_the_probe_fails` | PASS | 0.000 |
 | `phase2.tests.test_phase2.SafetyTests.test_firewall_apply_refuses_missing_anchor_without_loading_root_rules` | PASS | 0.000 |
 | `phase2.tests.test_phase2.SafetyTests.test_firewall_refuses_loopback_skip_and_rolls_back_own_anchor_only` | PASS | 0.001 |
 | `phase2.tests.test_phase2.SafetyTests.test_pid_reuse_and_remote_role_are_rejected` | PASS | 0.000 |
-| `phase2.tests.test_phase2.SafetyTests.test_real_pf_syntax_check_without_loading_rules` | PASS | 0.012 |
+| `phase2.tests.test_phase2.SafetyTests.test_real_pf_syntax_check_without_loading_rules` | PASS | 0.009 |
 | `phase2.tests.test_phase2.SafetyTests.test_record_state_and_config_snapshots` | PASS | 0.002 |
 | `phase2.tests.test_phase2.SafetyTests.test_two_resolvers_are_passed_to_existing_backup_mechanism` | PASS | 0.001 |
-| `phase2.tests.test_phase2.ServiceIntegrationTests.test_listener_inspection_rejects_wrong_socket_pid_and_inspection_errors` | PASS | 0.002 |
+| `phase2.tests.test_phase2.ServiceIntegrationTests.test_listener_inspection_rejects_wrong_socket_pid_and_inspection_errors` | PASS | 0.001 |
 | `phase2.tests.test_phase2.ServiceIntegrationTests.test_missing_backend_listener_still_times_out_without_network_probe` | PASS | 0.000 |
-| `phase2.tests.test_phase2.ServiceIntegrationTests.test_real_backend_start_conflict_restart_and_owned_stop` | PASS | 0.535 |
+| `phase2.tests.test_phase2.ServiceIntegrationTests.test_real_backend_start_conflict_restart_and_owned_stop` | PASS | 0.544 |
 
 The standalone `make ttl-lab` writes independent TTL/flush output. Initial failed timing assumptions and intermediate debugging logs are retained in [the evidence index](../../evidence/phase2/README.md). They are not counted as passing results.
 
 <!-- LIVE RESULTS -->
+
 
 
 
