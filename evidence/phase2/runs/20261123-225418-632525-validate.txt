@@ -1,0 +1,26 @@
+Observed at: 2026-11-23T22:54:18.632931+05:30
+Command: /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/network.py --config /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/network.env.example validate
+{
+  "TEAM_NAME": "team1",
+  "LAPTOP1_IP": "192.168.1.10",
+  "LAPTOP2_IP": "192.168.1.20",
+  "DNS_IP": "192.168.1.10",
+  "EDGE_IP": "192.168.1.20",
+  "BACKEND_A_IP": "192.168.1.10",
+  "BACKEND_A_PORT": 3001,
+  "BACKEND_B_IP": "192.168.1.20",
+  "BACKEND_B_PORT": 3002,
+  "APP_DOMAIN": "app.team1.test",
+  "API_DOMAIN": "api.team1.test",
+  "HTTPS_PORT": 8443,
+  "HTTP_PORT": 8080,
+  "DNS_TTL": 30,
+  "UPSTREAM_DNS": [],
+  "DNS_BACKUP_IP": "192.168.1.20",
+  "STANDBY_EDGE_IP": "192.168.1.10",
+  "LAN_INTERFACE": "en0",
+  "EDGE_USER": "_www",
+  "FAIL_TIMEOUT": 5
+}
+PASS: validated Phase 2 configuration
+Command result: PASS

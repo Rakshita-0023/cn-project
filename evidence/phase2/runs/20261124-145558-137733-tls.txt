@@ -1,0 +1,6 @@
+Observed at: 2026-11-24T14:55:58.138185+05:30
+Command: phase2/network.py tls trust
++ /opt/homebrew/bin/openssl x509 -in /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tls/ca.crt -noout -fingerprint -sha256
+sha256 Fingerprint=6D:A1:27:09:9A:E7:B8:2B:32:D1:F0:DC:51:F2:45:D5:D9:18:B7:37:26:EF:34:E6:9F:F5:57:55:0C:E6:79:ED
++ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tls/ca.crt
+Command result: PASS

@@ -1,0 +1,4 @@
+Observed at: 2026-11-24T16:11:47.715489+05:30
+Command: phase2/network.py inventory
+FAIL: Current LAN IP does not match exactly one laptop in network.env; regenerate the inventory/config
+Command result: FAIL

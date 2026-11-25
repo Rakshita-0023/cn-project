@@ -25,7 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = {"TEAM_NAME", "LAPTOP1_IP", "LAPTOP2_IP", "DNS_IP", "EDGE_IP",
             "BACKEND_A_IP", "BACKEND_A_PORT", "BACKEND_B_IP", "BACKEND_B_PORT",
             "APP_DOMAIN", "API_DOMAIN", "HTTPS_PORT"}
-OPTIONAL = {"HTTP_PORT", "DNS_TTL", "UPSTREAM_DNS"}
+OPTIONAL = {"HTTP_PORT", "DNS_TTL", "UPSTREAM_DNS", "DNS_BACKUP_IP",
+            "STANDBY_EDGE_IP", "LAN_INTERFACE", "EDGE_USER", "FAIL_TIMEOUT"}
 
 
 def ipv4(value, name, private=True):
@@ -269,9 +270,10 @@ def previous_dns(service):
     return addresses
 
 
-def set_client_dns(config, service=None, server=None):
+def set_client_dns(config, service=None, server=None, servers=None):
     service = wifi_service(service)
-    target = ipv4(server, "DNS fault-test server") if server else config["DNS_IP"]
+    targets = ([ipv4(item, "DNS server") for item in servers] if servers else
+               [ipv4(server, "DNS fault-test server") if server else config["DNS_IP"]])
     backup = ROOT / "dns/runtime/client-dns-backup.json"
     backup.parent.mkdir(parents=True, exist_ok=True)
     current = previous_dns(service)
@@ -284,8 +286,8 @@ def set_client_dns(config, service=None, server=None):
         with backup.open("x") as file:
             json.dump({"service": service, "servers": current}, file, indent=2)
         backup.chmod(0o600)
-    print(f"Changing {service} DNS: {current or 'automatic / DHCP'} -> {target}", flush=True)
-    run(["sudo", "networksetup", "-setdnsservers", service, target])
+    print(f"Changing {service} DNS: {current or 'automatic / DHCP'} -> {targets}", flush=True)
+    run(["sudo", "networksetup", "-setdnsservers", service, *targets])
     print(f"PASS: DNS set; original settings preserved in {backup}")
 
 
@@ -559,7 +561,7 @@ def bundle():
     target.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as archive:
         for directory, folders, files in os.walk(ROOT):
-            folders[:] = sorted(name for name in folders if name not in {".git", "runtime", "generated", "__pycache__"})
+            folders[:] = sorted(name for name in folders if name not in {".git", "runtime", "generated", "__pycache__", "tmp"})
             for name in sorted(files):
                 file = Path(directory) / name
                 relative = file.relative_to(ROOT)

@@ -1,0 +1,5 @@
+# Preserve genuine transcript/TSV whitespace; do not normalize evidence bytes.
+evidence/** -whitespace
+*.pdf binary
+*.png binary
+*.pcapng binary

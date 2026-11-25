@@ -1,0 +1,26 @@
+../opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py:1139: ResourceWarning: subprocess 34015 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+PASS: backend-a owned PID 34015 listening 127.0.0.1:60728 (local socket inspection; HTTP health via nginx)
+PASS: backend-a owned PID 34015 listening 127.0.0.1:60728 (local socket inspection; HTTP health via nginx)
++ kill -TERM 34015
+/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py:1139: ResourceWarning: subprocess 34038 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+PASS: backend-a owned PID 34038 listening 127.0.0.1:60728 (local socket inspection; HTTP health via nginx)
+HTTP/1.1 200 OK
+Server: CNBackend/1.0 Python/3.14.7
+Date: Tue, 24 Nov 2026 10:15:37 GMT
+X-Backend: A
+Cache-Control: no-store
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+
+{"backend": "A", "status": "ok"}
++ kill -TERM 34038
+.
+----------------------------------------------------------------------
+Ran 3 tests in 0.559s
+
+OK
+PASS: backend-a stopped

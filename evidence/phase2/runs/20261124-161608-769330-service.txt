@@ -1,0 +1,5 @@
+Observed at: 2026-11-24T16:16:08.769483+05:30
+Command: phase2/network.py service backend-a restart
++ kill -TERM 18729
+PASS: backend-a owned PID 53191 listening 10.7.12.26:3001 (local socket inspection; HTTP health via nginx)
+Command result: PASS

@@ -1,0 +1,38 @@
+Observed at: 2026-11-24T15:21:40.430674+05:30
+Command: phase2/network.py firewall status
++ pfctl -a com.apple/cn-phase2 -vvsr
+@0 pass out quick inet proto tcp from any to <cn_backends:2> port = 3001 user = 70 flags S/SA keep state
+  [ Owner : nil          Priority : 0     ]
+  [ Evaluations: 998       Packets: 0         Bytes: 0           States: 0     ]
+  [ Inserted: uid 0 pid 18399 ]
+@1 pass out quick inet proto tcp from any to <cn_backends:2> port = 3002 user = 70 flags S/SA keep state
+  [ Owner : nil          Priority : 0     ]
+  [ Evaluations: 0         Packets: 0         Bytes: 0           States: 0     ]
+  [ Inserted: uid 0 pid 18399 ]
+@2 block return out quick inet proto tcp from any to <cn_backends:2> port = 3001
+  [ Owner : nil          Priority : 0     ]
+  [ Evaluations: 0         Packets: 0         Bytes: 0           States: 0     ]
+  [ Inserted: uid 0 pid 18399 ]
+@3 block return out quick inet proto tcp from any to <cn_backends:2> port = 3002
+  [ Owner : nil          Priority : 0     ]
+  [ Evaluations: 0         Packets: 0         Bytes: 0           States: 0     ]
+  [ Inserted: uid 0 pid 18399 ]
+@4 pass in quick inet proto tcp from <cn_edges:2> to <cn_backends:2> port = 3001 flags S/SA keep state
+  [ Owner : nil          Priority : 0     ]
+  [ Evaluations: 787       Packets: 0         Bytes: 0           States: 0     ]
+  [ Inserted: uid 0 pid 18399 ]
+@5 pass in quick inet proto tcp from <cn_edges:2> to <cn_backends:2> port = 3002 flags S/SA keep state
+  [ Owner : nil          Priority : 0     ]
+  [ Evaluations: 0         Packets: 0         Bytes: 0           States: 0     ]
+  [ Inserted: uid 0 pid 18399 ]
+@6 block return in quick inet proto tcp from any to <cn_backends:2> port = 3001
+  [ Owner : nil          Priority : 0     ]
+  [ Evaluations: 156       Packets: 0         Bytes: 0           States: 0     ]
+  [ Inserted: uid 0 pid 18399 ]
+@7 block return in quick inet proto tcp from any to <cn_backends:2> port = 3002
+  [ Owner : nil          Priority : 0     ]
+  [ Evaluations: 156       Packets: 0         Bytes: 0           States: 0     ]
+  [ Inserted: uid 0 pid 18399 ]
+No ALTQ support in kernel
+ALTQ related functions disabled
+Command result: PASS

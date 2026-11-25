@@ -1,3 +1,11 @@
+**Current Phase 2 deployment:** Rakshita 10.7.12.26; Lakshya 10.7.7.242. See [updated architecture](docs/phase2/ARCHITECTURE.md). The Phase 1 sections below retain historical values. Final readiness is governed by SUBMISSION_CHECKLIST.md.
+
+# Phase 2 architecture
+
+The updated two-Mac topology, current-versus-historical inventory, standby edge,
+backup resolver and firewall trust boundary are in [docs/phase2/ARCHITECTURE.md](docs/phase2/ARCHITECTURE.md).
+The Phase 1 architecture retained below describes the original deployment.
+
 # Codexers — Type 2 Phase 1 architecture
 
 This project uses Type 2 infrastructure: two physical macOS laptops with combined roles, as supported by the Phase 1 submission form. Polana Rakshita is Person A; Lakshya Choudhary is Person B. Roles share hosts because there are two physical Macs.

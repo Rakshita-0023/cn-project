@@ -1,0 +1,8 @@
+# Both Macs must apply this anchor. Only dedicated nginx workers open backend sockets.
+# The root dispatcher must already include anchor "com.apple/*"; no root rules are replaced.
+table <cn_edges> const { 192.168.1.10, 192.168.1.20 }
+table <cn_backends> const { 192.168.1.10, 192.168.1.20 }
+pass out quick inet proto tcp from any to <cn_backends> port { 3001, 3002 } user 70 flags S/SA keep state
+block return out quick inet proto tcp from any to <cn_backends> port { 3001, 3002 }
+pass in quick inet proto tcp from <cn_edges> to <cn_backends> port { 3001, 3002 } flags S/SA keep state
+block return in quick inet proto tcp from any to <cn_backends> port { 3001, 3002 }

@@ -1,0 +1,6 @@
+Observed at: 2026-11-24T15:06:21.572339+05:30
+Command: phase2/network.py set-dns
+Changing Wi-Fi DNS: ['8.8.8.8', '8.8.4.4'] -> ['10.7.28.208', '10.7.7.242']
++ sudo networksetup -setdnsservers Wi-Fi 10.7.28.208 10.7.7.242
+PASS: DNS set; original settings preserved in /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/dns/runtime/client-dns-backup.json
+Command result: PASS

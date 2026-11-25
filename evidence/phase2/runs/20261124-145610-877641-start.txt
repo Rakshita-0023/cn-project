@@ -1,0 +1,4 @@
+Observed at: 2026-11-24T14:56:10.877827+05:30
+Command: phase2/network.py start
+FAIL: dns-primary: cannot bind 10.7.28.208:53: [Errno 13] Permission denied; inspect lsof, preserve existing Phase 1 services
+Command result: FAIL

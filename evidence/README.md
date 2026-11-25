@@ -1,8 +1,10 @@
+**Public evidence audit:** Five project-related original Phase 1 screenshots are published. The unrelated background-TLS image remains in the private local archive and old Git history; it is excluded from the current public tree. Phase 2 evidence is indexed in [phase2/exports/README.md](phase2/exports/README.md).
+
 # Codexers — real Phase 1 evidence
 
 **Infrastructure:** Type 2 — two physical macOS laptops with combined roles. Laptop 1 / Person A used `10.7.18.118` for DNS, Backend A :3001 and client testing. Laptop 2 / Person B used `10.7.31.46` for nginx / HTTPS :8443, Backend B :3002 and client testing.
 
-This index describes the **six original screenshots actually attached to this repository**. They were inspected and moved into folders without changing their contents. Local test output is not included as physical deployment evidence.
+This index describes the **five project-related original screenshots retained in this public tree**. They were inspected and moved into folders without changing their contents. Local test output is not included as physical deployment evidence.
 
 ## Attached files and what they show
 
@@ -13,13 +15,12 @@ This index describes the **six original screenshots actually attached to this re
 | [wireshark/tcp-handshake.png](wireshark/tcp-handshake.png) | The `tcp.port == 8443` view shows SYN → SYN-ACK → ACK between `10.7.18.118:59218` and `10.7.31.46:8443`, followed by a TLS ClientHello with SNI `app.codexers.test` and encrypted traffic. |
 | [wireshark/tls-handshake.png](wireshark/tls-handshake.png) | The endpoint-specific TLS filter shows TLS 1.3 ClientHello/ServerHello and application records, plus a separate TLS 1.2 handshake with Certificate, Server Key Exchange, Change Cipher Spec and encrypted records. This is the primary TLS screenshot. |
 | [wireshark/tls-handshake-serverhello-selected.png](wireshark/tls-handshake-serverhello-selected.png) | An additional view of the same endpoint-specific filter, with a TLS 1.3 ServerHello row highlighted and the TLS 1.2 certificate/key-exchange sequence also visible. Preserved as supporting evidence. |
-| [wireshark/tls-background-traffic.png](wireshark/tls-background-traffic.png) | A broad `tls` filter shows Laptop 1 exchanging encrypted application records with public Internet addresses. The selected packet uses source port 443, not the project edge port 8443. This is background-traffic context, **not proof of the project's TLS handshake**. |
 
 Port **59218 is the ephemeral source port of that captured connection**, not a permanent project port. HTTP application payload remains encrypted in the client-to-nginx TLS capture. These Wireshark views do not prove macOS certificate trust, a successful `curl` verification, backend selection or caching headers.
 
 ## Original filenames
 
-All six input images are preserved byte for byte; no screenshots or terminal results were generated during organization.
+All original input images remain preserved in the private deployment archive; the five published project images are byte-identical; no screenshots or terminal results were generated during organization.
 
 | Original filename in `evidence/` | Current location |
 |---|---|
@@ -28,7 +29,6 @@ All six input images are preserved byte for byte; no screenshots or terminal res
 | `evidence_wireshark_tcp_handshake.png` | `wireshark/tcp-handshake.png` |
 | `Screenshot 2026-10-05 at 4.27.00 PM.png` | `wireshark/tls-handshake.png` |
 | `evidence_wireshark_tls_clean.png` | `wireshark/tls-handshake-serverhello-selected.png` |
-| `evidence_wireshark_tls_noisy.png` | `wireshark/tls-background-traffic.png` |
 
 ## Evidence still to attach
 
@@ -47,6 +47,6 @@ The [evaluation checklist](../docs/EVALUATION_CHECKLIST.md) records the team's r
 
 The six otherwise empty category directories are retained with `.gitkeep`. Copy only real, reviewed files into them and update this index when those files are attached. Do not substitute development tests or sample output for recorded deployment evidence.
 
-Keep `network.env`, private keys, generated certificates, runtime logs/PIDs, saved DNS settings and credentials out of Git. The attached screenshots include terminal identities, LAN/MAC addresses and, in the background view, public server addresses; they are preserved as supplied. Review any additional screenshots and packet captures before publishing them.
+Keep `network.env`, private keys, generated certificates, runtime logs/PIDs, saved DNS settings and credentials out of Git. The attached screenshots include terminal identities, LAN/MAC addresses ; the unrelated background view is not published in the current tree. Review any additional screenshots and packet captures before publishing them.
 
-See [the Wireshark guide](../wireshark/README.md), [the live failure account](../docs/FAILURE_ANALYSIS.md), and [the recording plan](../README.md#5-minute-demo-recording). The section label, the final video upload and the form submission remain separate submission tasks.
+See [the Wireshark guide](../wireshark/README.md), [the live failure account](../docs/FAILURE_ANALYSIS.md), and [the recording plan](../docs/PHASE1_RUNBOOK.md#5-minute-demo-recording). The section label, the final video upload and the form submission remain separate submission tasks.

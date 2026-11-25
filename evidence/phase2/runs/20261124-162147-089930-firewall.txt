@@ -1,0 +1,55 @@
+Observed at: 2026-11-24T16:21:47.090362+05:30
+Command: phase2/network.py firewall apply
+Rendered /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/backend-isolation.pf
++ pfctl -n -a com.apple/cn-phase2 -f /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/backend-isolation.pf
+pfctl: Use of -f option, could result in flushing of rules
+present in the main ruleset added by the system at startup.
+See /etc/pf.conf for further details.
+
++ pfctl -sr
+scrub-anchor "com.apple/*" all fragment reassemble
+anchor "com.apple/*" all
+No ALTQ support in kernel
+ALTQ related functions disabled
++ pfctl -s Interfaces -v
+ALL
+anpi0
+anpi1
+ap1
+awdl0
+bridge0
+en0
+en1
+en2
+en3
+en4
+gif0
+llw0
+lo0
+stf0
+utun0
+utun1
+utun2
+utun3
+utun4
+utun5
+No ALTQ support in kernel
+ALTQ related functions disabled
++ pfctl -a com.apple/cn-phase2 -sr
+No ALTQ support in kernel
+ALTQ related functions disabled
++ pfctl -a com.apple/cn-phase2 -f /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/backend-isolation.pf
+pfctl: Use of -f option, could result in flushing of rules
+present in the main ruleset added by the system at startup.
+See /etc/pf.conf for further details.
+
+No ALTQ support in kernel
+ALTQ related functions disabled
++ pfctl -E
+No ALTQ support in kernel
+ALTQ related functions disabled
+pf enabled
+Token : [REDACTED_PF_REFERENCE]
+PF anchor applied. Restart project backends to discard old backend TCP connections, then run test isolation on BOTH Macs.
+Existing PF states are intentionally preserved. Do not call isolation verified until fresh direct requests fail and both edges still reach A/B.
+Command result: PASS

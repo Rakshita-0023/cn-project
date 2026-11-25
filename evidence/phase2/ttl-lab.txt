@@ -1,0 +1,117 @@
+Observed: 2026-11-23T22:54:19.269791+05:30
+Host: macOS-26.3-arm64-arm-64bit-Mach-O Python: 3.14.7
+Scope: local loopback processes, ephemeral test ports. No LAN, Keychain, system DNS or PF changes.
+test_real_ttl_expiry_record_change_and_cache_flush (phase2.tests.test_phase2.DNSIntegrationTests.test_real_ttl_expiry_record_change_and_cache_flush) ... + /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 6d82u4l5/primary.conf
+dnsmasq: syntax check OK.
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 6d82u4l5/cache.conf
+dnsmasq: syntax check OK.
++ /usr/bin/dig @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 21010
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 36779
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		2	IN	A	10.23.0.20
+
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 6d82u4l5/primary-new.conf
+dnsmasq: syntax check OK.
++ /usr/bin/dig @127.0.0.1 -p 53564 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 53564 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 10986
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.10
+
++ /usr/bin/dig @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 51744
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		2	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 374
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.10
+
+Observed old cached A until real TTL expiry, then the new A.
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 6d82u4l5/primary-restored.conf
+dnsmasq: syntax check OK.
++ /usr/bin/dig @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 25215
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.10
+
++ /usr/bin/dig @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 53569 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 59109
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
+Observed immediate change after flushing the forwarding resolver cache. Native macOS flush is pending live demonstration.
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 4.214s
+
+OK

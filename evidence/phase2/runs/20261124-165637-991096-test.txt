@@ -1,0 +1,130 @@
+Observed at: 2026-11-24T16:56:37.991258+05:30
+Command: phase2/network.py test all
++ /usr/bin/dig @10.7.12.26 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.12.26 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 62159
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.12.26 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @10.7.12.26 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 59768
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.12.26 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.12.26 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 14443
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.12.26 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @10.7.12.26 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 41937
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.7.242 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.7.242 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; connection timed out; no servers could be reached
++ /usr/bin/dig @10.7.12.26 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.12.26 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60669
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.12.26 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @10.7.12.26 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 19344
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.12.26 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.12.26 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 1577
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.12.26 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @10.7.12.26 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 19495
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.7.242 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.7.242 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; connection timed out; no servers could be reached
+Direct backend ('10.7.12.26', 3001) blocked/refused: timed out
+Direct backend ('10.7.7.242', 3002) blocked/refused: [Errno 61] Connection refused
+FAIL: dns: DNS 10.7.7.242:53 did not return NOERROR; https: curl failed (28): curl: (28) Resolving timed out after 4000 milliseconds; balancing: curl failed (28): curl: (28) Resolving timed out after 4005 milliseconds; caching: curl failed (28): curl: (28) Resolving timed out after 4005 milliseconds; migration: DNS 10.7.7.242:53 did not return NOERROR; isolation: curl failed (28): curl: (28) Failed to connect to app.codexers.test port 8443 after 4005 ms: Timeout was reached
+Command result: FAIL

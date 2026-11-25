@@ -1,0 +1,7 @@
+Observed at: 2026-11-24T14:59:46.787478+05:30
+Command: phase2/network.py status
+dns-primary: STOPPED
+backend-a: running PID 78251
+edge-standby: running PID 3445
+FAIL: Stopped services: dns-primary
+Command result: FAIL

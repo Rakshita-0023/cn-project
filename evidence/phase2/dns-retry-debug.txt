@@ -1,0 +1,32 @@
+.
+----------------------------------------------------------------------
+Ran 1 test in 1.572s
+
+OK
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns fmlfuqww/primary.conf
+dnsmasq: syntax check OK.
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns fmlfuqww/backup.conf
+dnsmasq: syntax check OK.
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns fmlfuqww/resolver.conf
+dnsmasq: syntax check OK.
++ /usr/bin/dig @127.0.0.1 -p 52527 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52527 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 47294
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
++ dig @127.0.0.1 -p 52527 api.team1.test A +time=1 +tries=3 +noall +answer
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52527 api.team1.test A +time=1 +tries=3 +noall +answer
+; (1 server found)
+;; global options: +cmd
+api.team1.test.		3	IN	A	10.23.0.20
+Verified backup through a real forwarding resolver; this is separate from native macOS resolver behavior.

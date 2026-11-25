@@ -1,0 +1,17 @@
+Observed at: 2026-11-24T16:14:00.738704+05:30
+Command: phase2/network.py inventory
+{
+  "observed_at": "2026-11-24T16:14:00.754387+05:30",
+  "laptop": 1,
+  "hostname": "polanarakshita2024nstrishihoodeduins-MacBook-Pro.local",
+  "ipv4": "10.7.12.26",
+  "subnet_mask": "255.255.224.0",
+  "prefix": 19,
+  "interface": "en0",
+  "mac_address": "36:c0:34:9d:68:a5",
+  "gateway": "10.7.0.1",
+  "route_output": "   route to: default\ndestination: default\n       mask: default\n    gateway: 10.7.0.1\n  interface: en0\n      flags: <UP,GATEWAY,DONE,STATIC,PRCLONING,GLOBAL>\n recvpipe  sendpipe  ssthresh  rtt,msec    rttvar  hopcount      mtu     expire\n       0         0         0         0         0         0      1500         0 \n",
+  "ifconfig_output": "en0: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500\n\toptions=6460<TSO4,TSO6,CHANNEL_IO,PARTIAL_CSUM,ZEROINVERT_CSUM>\n\tether 36:c0:34:9d:68:a5\n\tinet6 fe80::14f9:2310:63ac:3b42%en0 prefixlen 64 secured scopeid 0xb \n\tinet 10.7.12.26 netmask 0xffffe000 broadcast 10.7.31.255\n\tnd6 options=201<PERFORMNUD,DAD>\n\tmedia: autoselect\n\tstatus: active\n"
+}
+PASS: actual inventory saved to /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/evidence/lan/inventory-laptop1.json
+Command result: PASS

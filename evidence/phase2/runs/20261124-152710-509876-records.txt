@@ -1,0 +1,93 @@
+Observed at: 2026-11-24T15:27:10.510162+05:30
+Command: phase2/network.py records --target standby --ttl 30
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:57:10 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:57:10 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:57:10 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:57:10 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:57:10 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:57:10 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+PASS: HTTPS validated, 6 requests, observed ['A', 'B']
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/dns-primary/dnsmasq.conf
+dnsmasq: syntax check OK.
++ sudo kill -TERM 15123
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/dns-primary/dnsmasq.conf
+dnsmasq: syntax check OK.
++ sudo /opt/homebrew/sbin/dnsmasq --conf-file=/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/dns-primary/dnsmasq.conf
+PASS: dns-primary listening 10.7.28.208:53, PID 22249
++ /usr/bin/dig @10.7.28.208 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.28.208 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 3838
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.codexers.test.	30	IN	A	10.7.28.208
+
+LOCAL DNS set to 10.7.28.208, TTL=30. Run the SAME records command on the OTHER Mac, then test dns.
+The peer is not changed remotely. Do not stop the old edge before both DNS records agree and the previous TTL has expired.
+Command result: PASS

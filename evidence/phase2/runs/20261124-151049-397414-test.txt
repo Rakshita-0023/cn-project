@@ -1,0 +1,125 @@
+Observed at: 2026-11-24T15:10:49.397870+05:30
+Command: phase2/network.py test https
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:49 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:50 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:50 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:50 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:50 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:50 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:51 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:51 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:52 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:52 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+PASS: HTTPS validated, 10 requests, observed ['A', 'B']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:52 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+Command result: PASS

@@ -1,0 +1,766 @@
+Observed: 2026-11-23T22:42:31.600136+05:30
+Host: macOS-26.3-arm64-arm-64bit-Mach-O Python: 3.14.7
+Scope: local loopback processes, ephemeral test ports. No LAN, Keychain, system DNS or PF changes.
+test_cache_is_consistent_across_backends_and_supports_conditional_get (test_local.BackendTests.test_cache_is_consistent_across_backends_and_supports_conditional_get) ... ok
+test_head_has_representation_headers_and_no_body (test_local.BackendTests.test_head_has_representation_headers_and_no_body) ... ok
+test_required_endpoints_identify_each_instance (test_local.BackendTests.test_required_endpoints_identify_each_instance) ... ok
+test_automatic_dns_restores_with_empty_and_failed_restore_keeps_backup (test_local.ClientDNSStateTests.test_automatic_dns_restores_with_empty_and_failed_restore_keeps_backup) ... Changing Wi-Fi DNS: automatic / DHCP -> ['192.168.1.10']
+PASS: DNS set; original settings preserved in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/tmpjztm3kqg/dns/runtime/client-dns-backup.json
+Restoring Wi-Fi DNS to automatic / DHCP
+Restoring Wi-Fi DNS to automatic / DHCP
+PASS: original DNS settings restored; backup removed only after success
+ok
+test_preserves_manual_ipv4_ipv6_settings_across_repeated_changes (test_local.ClientDNSStateTests.test_preserves_manual_ipv4_ipv6_settings_across_repeated_changes) ... Changing Campus Wi-Fi DNS: ['192.168.1.20', '::1'] -> ['192.168.1.10']
+PASS: DNS set; original settings preserved in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/tmpapv9n5ul/dns/runtime/client-dns-backup.json
+Keeping the original DNS backup; repeated setup/fault tests do not overwrite it.
+Changing Campus Wi-Fi DNS: ['192.168.1.20', '::1'] -> ['192.168.1.20']
+PASS: DNS set; original settings preserved in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/tmpapv9n5ul/dns/runtime/client-dns-backup.json
+Restoring Campus Wi-Fi DNS to ['192.168.1.20', '::1']
+PASS: original DNS settings restored; backup removed only after success
+ok
+test_stop_refuses_an_unrelated_pid (test_local.ClientDNSStateTests.test_stop_refuses_an_unrelated_pid) ... ok
+test_alias_mismatch_is_rejected (test_local.ConfigurationTests.test_alias_mismatch_is_rejected) ... ok
+test_domain_injection_and_non_test_domain_are_rejected (test_local.ConfigurationTests.test_domain_injection_and_non_test_domain_are_rejected) ... ok
+test_duplicates_unknown_keys_shell_expressions_and_ports_are_rejected (test_local.ConfigurationTests.test_duplicates_unknown_keys_shell_expressions_and_ports_are_rejected) ... ok
+test_example_environment_parses_and_aliases_match (test_local.ConfigurationTests.test_example_environment_parses_and_aliases_match) ... ok
+test_loopback_is_rejected_for_physical_deployment (test_local.ConfigurationTests.test_loopback_is_rejected_for_physical_deployment) ... ok
+test_missing_runtime_environment_is_rejected (test_local.ConfigurationTests.test_missing_runtime_environment_is_rejected) ... ok
+test_quoted_values_comments_and_upstream_dns (test_local.ConfigurationTests.test_quoted_values_comments_and_upstream_dns) ... ok
+test_direct_entries_and_shell_launchers_use_environment_and_clean_pid (test_local.EntrypointTests.test_direct_entries_and_shell_launchers_use_environment_and_clean_pid) ... ok
+test_optional_ca_chain_sans_permissions_and_no_silent_rotation (test_local.EntrypointTests.test_optional_ca_chain_sans_permissions_and_no_silent_rotation) ... PASS: source/evidence zip saved to ignored /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn commands with spaces etdlurf7/scripts/runtime/cn-project.zip
+ok
+test_real_project_nginx_start_reload_stop_lifecycle (test_local.EntrypointTests.test_real_project_nginx_start_reload_stop_lifecycle) ... ok
+test_rendering_commands_and_start_reject_invalid_nginx (test_local.EntrypointTests.test_rendering_commands_and_start_reject_invalid_nginx) ... ok
+test_real_dnsmasq_answers_both_names_with_ttl_over_udp_and_tcp (test_local.NetworkIntegrationTests.test_real_dnsmasq_answers_both_names_with_ttl_over_udp_and_tcp) ... PASS: DNS configuration rendered to /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn dns urqsc5ay/dns/generated/dnsmasq.conf
+ok
+test_real_nginx_tls_round_robin_caching_and_failures (test_local.NetworkIntegrationTests.test_real_nginx_tls_round_robin_caching_and_failures) ... PASS: DNS configuration rendered to /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase1 z3h06wb5/dns/generated/dnsmasq.conf
+PASS: nginx configuration rendered to /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase1 z3h06wb5/nginx/generated/nginx.conf
+PASS: nginx configuration rendered to /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase1 z3h06wb5/nginx/generated/nginx.conf
+ok
+test_both_resolvers_answer_identically_udp_tcp_and_primary_stop (phase2.tests.test_phase2.DNSIntegrationTests.test_both_resolvers_answer_identically_udp_tcp_and_primary_stop) ... + /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns eciqmti_/primary.conf
+dnsmasq: syntax check OK.
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns eciqmti_/backup.conf
+dnsmasq: syntax check OK.
++ /usr/bin/dig @127.0.0.1 -p 52284 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52284 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 18775
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52289 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52289 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 46656
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52284 app.team1.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52284 app.team1.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 36455
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52289 app.team1.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52289 app.team1.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64852
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52284 api.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52284 api.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 22448
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52289 api.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52289 api.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 61839
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52284 api.team1.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52284 api.team1.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 42693
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52289 api.team1.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52289 api.team1.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 39840
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52284 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52284 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; connection timed out; no servers could be reached
++ /usr/bin/dig @127.0.0.1 -p 52289 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52289 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 65026
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
+ok
+test_real_forwarding_client_falls_back_after_primary_stops (phase2.tests.test_phase2.DNSIntegrationTests.test_real_forwarding_client_falls_back_after_primary_stops) ... + /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 3t3pg8wk/primary.conf
+dnsmasq: syntax check OK.
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 3t3pg8wk/backup.conf
+dnsmasq: syntax check OK.
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 3t3pg8wk/resolver.conf
+dnsmasq: syntax check OK.
++ /usr/bin/dig @127.0.0.1 -p 52310 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52310 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 51593
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
++ dig @127.0.0.1 -p 52310 api.team1.test A +time=5 +tries=1 +noall +answer
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52310 api.team1.test A +time=5 +tries=1 +noall +answer
+; (1 server found)
+;; global options: +cmd
+;; connection timed out; no servers could be reached
+ERROR
+test_real_ttl_expiry_record_change_and_cache_flush (phase2.tests.test_phase2.DNSIntegrationTests.test_real_ttl_expiry_record_change_and_cache_flush) ... + /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 50hvr98v/primary.conf
+dnsmasq: syntax check OK.
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 50hvr98v/cache.conf
+dnsmasq: syntax check OK.
++ /usr/bin/dig @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 33991
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 34440
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		2	IN	A	10.23.0.20
+
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 50hvr98v/primary-new.conf
+dnsmasq: syntax check OK.
++ /usr/bin/dig @127.0.0.1 -p 52316 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52316 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31066
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.10
+
++ /usr/bin/dig @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 12671
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		2	IN	A	10.23.0.20
+
++ /usr/bin/dig @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 4262
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.10
+
+Observed old cached A until real TTL expiry, then the new A.
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 dns 50hvr98v/primary-restored.conf
+dnsmasq: syntax check OK.
++ /usr/bin/dig @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16314
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.10
+
++ /usr/bin/dig @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @127.0.0.1 -p 52321 app.team1.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7393
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.team1.test.		3	IN	A	10.23.0.20
+
+Observed immediate change after flushing the forwarding resolver cache. Native macOS flush is pending live demonstration.
+ok
+test_two_real_edges_tls_failover_recovery_and_caching (phase2.tests.test_phase2.EdgeIntegrationTests.test_two_real_edges_tls_failover_recovery_and_caching) ... + /opt/homebrew/bin/openssl req -x509 -newkey rsa:2048 -noenc -sha256 -days 365 -subj /CN=team1 Phase 2 CA -addext basicConstraints=critical,CA:TRUE -addext keyUsage=critical,keyCertSign,cRLSign -keyout /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.key -out /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.crt
+.+.....+++++++++++++++++++++++++++++++++++++++*.+.......+.....+.+.....+....+........+...+++++++++++++++++++++++++++++++++++++++*..+...+.....+.+..+...+.+...........+.......+...+........+.+.....+....+...........+.+.........+....................+.+..+............+.............+.....+......+....+..+.+..+.+.....+.+......+.....+..........+.....+..........+............+............+.....+...+...+...+....+......+.....+.+..............+.+...............+......+..+...........................+...+...............+..........+.....+.+..+..........+..+.+....................+.......+............+..+.+...+.....+....+...+..............+.....................+...+.+.........+.....+..........+..+...+.......+............+...+....................+....+.....+.............+...+..+............+.+..+.......+.....+....+..+....+...........+..........+.....+.......+.....................+.....+.+...........+.......+...+..++++++
+....+.....+...............+.+.....+...+......+....+...............+..+++++++++++++++++++++++++++++++++++++++*..+.+......+++++++++++++++++++++++++++++++++++++++*....+..+......+.+.....+......+...+....+...+....................+.......+......+..+..........+...+..+....+...+.....................+.........+.....+................+..+.........+.....................+...+.+........+.+..+.......+...+..++++++
+-----
+Created CA. Keep ca.key only on Mac 2; copy ca.crt to Mac 1.
++ /opt/homebrew/bin/openssl req -new -newkey rsa:2048 -noenc -sha256 -subj /CN=app.team1.test -addext subjectAltName=DNS:app.team1.test,DNS:api.team1.test -keyout /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.key -out /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.csr
+..+.....+++++++++++++++++++++++++++++++++++++++*...........+....+.....+.+++++++++++++++++++++++++++++++++++++++*........+...+..+.....................+....+......+..+......+..........+..+...+......+...+............+....+...........+....+...........+....+.....+.+........+............+.+.........+.....+.+.....+.......+.....+......+......+.+....................+............+.++++++
+............+..+...+.......+.........+.....+....+.....+++++++++++++++++++++++++++++++++++++++*..........+...+...+.+...+...+..+.+......+.........+..+...+.+...........+...+.+...+..+.+.....+++++++++++++++++++++++++++++++++++++++*.....+......+...+...+...+....+..+...............+.+...+..+..........+..+.......+.....+.....................+...+....+......+.....+......+.............+...............+...+....................+.........+.........+..........+......+...+..+.+..............+.+............+..+.........+....+..+....+.....+....+.....+.......+.....+......+....+.........+..............+.+......+......+...+..+..........+..+...+...+....+..+.........+......+.+...+...............+..+............+......+......+...+............+...+..........+...+............+........+.........+.+...+..+.......+........+....+..............+.....................+.+...+.....+.+.....+..........+...........+...+....+..+...+.+......+.....+...+...+...+.+...+.....+...+...+.........+......+.........+......+.+...+...+........+.+...+..+.............+...+...+..............+.+.................+.......+............+........+...+..........+.....+.........+.........+..........+......+.........+.....+............+...+....+...+..............+.........+.+...+...+.....+...+.......+..................+..+...............+...................+.....+.+.........+...........+.......+...........+....+..+......+.......+...+..+...+.......+..+...+.+.....................+.....+..........+.....+...+.+..+.......+.....+.......+.....+....+..+.......+........+.......+......+.....+.+......+.........+......++++++
+-----
+CSR: /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.csr. Send only this public CSR to Mac 2 for signing.
++ /opt/homebrew/bin/openssl req -in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.csr -verify -noout
+Certificate request self-signature verify OK
++ /opt/homebrew/bin/openssl x509 -req -in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.csr -CA /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.crt -CAkey /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.key -set_serial 0xdbca48ddb74de8abb1d775fdfa8206e9 -days 90 -sha256 -extfile /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/server-extensions.cnf -out /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.crt
+Certificate request self-signature ok
+subject=CN=app.team1.test
+Signed public certificate: /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.crt; send it back to the edge owning the matching private key.
++ /opt/homebrew/bin/openssl verify -CAfile /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.crt -verify_hostname app.team1.test /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.crt
+/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.crt: OK
++ /opt/homebrew/bin/openssl verify -CAfile /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.crt -verify_hostname api.team1.test /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.crt
+/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.crt: OK
++ /opt/homebrew/bin/openssl x509 -in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-primary/server.crt -noout -subject -dates -fingerprint -sha256
+subject=CN=app.team1.test
+notBefore=Nov 23 17:12:56 2026 GMT
+notAfter=Feb 21 17:12:56 2027 GMT
+sha256 Fingerprint=5B:D4:5A:D7:6A:2C:6F:3A:0E:BF:86:5B:A4:52:7D:70:4E:00:8D:E9:CA:FC:65:CD:E4:07:78:F3:9C:01:00:77
+PASS: certificate chain, both SANs, key match, validity and key permissions
++ /opt/homebrew/bin/nginx -p /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/runtime/edge-primary/ -c /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/generated/edge-primary/nginx.conf -t
+nginx: [warn] the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/generated/edge-primary/nginx.conf:2
+nginx: the configuration file /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/generated/edge-primary/nginx.conf syntax is ok
+nginx: configuration file /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/generated/edge-primary/nginx.conf test is successful
++ /opt/homebrew/bin/openssl req -new -newkey rsa:2048 -noenc -sha256 -subj /CN=app.team1.test -addext subjectAltName=DNS:app.team1.test,DNS:api.team1.test -keyout /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.key -out /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.csr
+................+..+...+++++++++++++++++++++++++++++++++++++++*.....+..+....+......+........+.........+.+......+.........+.....+.+..................+..+.+...+++++++++++++++++++++++++++++++++++++++*.+....+..+..........++++++
+......+.+...............+.....+.+.....+...+...+....+++++++++++++++++++++++++++++++++++++++*......+...+..+.........+......+.............+..+....+++++++++++++++++++++++++++++++++++++++*....+...+..........+...+..+......+....+..+....+...............+..+........................+.............+..+....+......+..............+....+........+...+.+.........+......+.........+............++++++
+-----
+CSR: /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.csr. Send only this public CSR to Mac 2 for signing.
++ /opt/homebrew/bin/openssl req -in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.csr -verify -noout
+Certificate request self-signature verify OK
++ /opt/homebrew/bin/openssl x509 -req -in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.csr -CA /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.crt -CAkey /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.key -set_serial 0x1032c1165d731f4218e115a1f3cd30b8 -days 90 -sha256 -extfile /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/server-extensions.cnf -out /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.crt
+Certificate request self-signature ok
+subject=CN=app.team1.test
+Signed public certificate: /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.crt; send it back to the edge owning the matching private key.
++ /opt/homebrew/bin/openssl verify -CAfile /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.crt -verify_hostname app.team1.test /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.crt
+/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.crt: OK
++ /opt/homebrew/bin/openssl verify -CAfile /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/ca.crt -verify_hostname api.team1.test /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.crt
+/var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.crt: OK
++ /opt/homebrew/bin/openssl x509 -in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/tls/edge-standby/server.crt -noout -subject -dates -fingerprint -sha256
+subject=CN=app.team1.test
+notBefore=Nov 23 17:12:56 2026 GMT
+notAfter=Feb 21 17:12:56 2027 GMT
+sha256 Fingerprint=B2:C5:30:30:D4:B5:1D:7A:49:CC:BA:D4:8E:9C:AA:49:3E:CC:A2:06:8E:35:89:E9:C2:7C:A0:B0:8B:BB:FD:2E
+PASS: certificate chain, both SANs, key match, validity and key permissions
++ /opt/homebrew/bin/nginx -p /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/runtime/edge-standby/ -c /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/generated/edge-standby/nginx.conf -t
+nginx: [warn] the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/generated/edge-standby/nginx.conf:2
+nginx: the configuration file /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/generated/edge-standby/nginx.conf syntax is ok
+nginx: configuration file /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase2 edges hc7q2io0/phase2/generated/edge-standby/nginx.conf test is successful
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 67
+Connection: keep-alive
+X-Backend: B
+Cache-Control: public, max-age=60
+ETag: "197f00155c83ec711ac9eb1e4ab66c5d7a7f88c9bf3e49632f151af091bca59c"
+X-Edge: edge-primary
+
+{"message":"Shared cacheable course-project resource","version":1}
+HTTP/1.1 304 Not Modified
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:56 GMT
+Connection: keep-alive
+X-Backend: A
+Cache-Control: public, max-age=60
+ETag: "197f00155c83ec711ac9eb1e4ab66c5d7a7f88c9bf3e49632f151af091bca59c"
+X-Edge: edge-primary
+
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 67
+Connection: keep-alive
+X-Backend: B
+Cache-Control: public, max-age=60
+ETag: "197f00155c83ec711ac9eb1e4ab66c5d7a7f88c9bf3e49632f151af091bca59c"
+X-Edge: edge-standby
+
+{"message":"Shared cacheable course-project resource","version":1}
+HTTP/1.1 304 Not Modified
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Connection: keep-alive
+X-Backend: A
+Cache-Control: public, max-age=60
+ETag: "197f00155c83ec711ac9eb1e4ab66c5d7a7f88c9bf3e49632f151af091bca59c"
+X-Edge: edge-standby
+
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Mon, 23 Nov 2026 17:12:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+FAIL
+test_cli_rejects_invalid_counts_and_runs_from_other_directory (phase2.tests.test_phase2.SafetyTests.test_cli_rejects_invalid_counts_and_runs_from_other_directory) ... ok
+test_config_defaults_and_rejects_unsafe_values (phase2.tests.test_phase2.SafetyTests.test_config_defaults_and_rejects_unsafe_values) ... ok
+test_firewall_apply_refuses_missing_anchor_without_loading_root_rules (phase2.tests.test_phase2.SafetyTests.test_firewall_apply_refuses_missing_anchor_without_loading_root_rules) ... ok
+test_firewall_refuses_loopback_skip_and_rolls_back_own_anchor_only (phase2.tests.test_phase2.SafetyTests.test_firewall_refuses_loopback_skip_and_rolls_back_own_anchor_only) ... PASS: removed only project rules/tables and released only the project's PF enable reference
+ok
+test_pid_reuse_and_remote_role_are_rejected (phase2.tests.test_phase2.SafetyTests.test_pid_reuse_and_remote_role_are_rejected) ... ok
+test_real_pf_syntax_check_without_loading_rules (phase2.tests.test_phase2.SafetyTests.test_real_pf_syntax_check_without_loading_rules) ... + /sbin/pfctl -n -f /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/tmpj5docezs/isolation.pf
+pfctl: Use of -f option, could result in flushing of rules
+present in the main ruleset added by the system at startup.
+See /etc/pf.conf for further details.
+
+ok
+test_record_state_and_config_snapshots (phase2.tests.test_phase2.SafetyTests.test_record_state_and_config_snapshots) ... ok
+test_two_resolvers_are_passed_to_existing_backup_mechanism (phase2.tests.test_phase2.SafetyTests.test_two_resolvers_are_passed_to_existing_backup_mechanism) ... Changing Wi-Fi DNS: ['8.8.8.8'] -> ['192.168.1.10', '192.168.1.20']
+PASS: DNS set; original settings preserved in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/tmplfe2loln/dns/runtime/client-dns-backup.json
+Keeping the original DNS backup; repeated setup/fault tests do not overwrite it.
+Changing Wi-Fi DNS: ['8.8.8.8'] -> ['192.168.1.10', '192.168.1.20']
+PASS: DNS set; original settings preserved in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/tmplfe2loln/dns/runtime/client-dns-backup.json
+ok
+
+======================================================================
+ERROR: test_real_forwarding_client_falls_back_after_primary_stops (phase2.tests.test_phase2.DNSIntegrationTests.test_real_forwarding_client_falls_back_after_primary_stops)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tests/test_phase2.py", line 192, in test_real_forwarding_client_falls_back_after_primary_stops
+    answer = logged_run(command, timeout=7)
+  File "/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tests/test_phase2.py", line 31, in logged_run
+    result.check_returncode()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 509, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['dig', '@127.0.0.1', '-p', '52310', 'api.team1.test', 'A', '+time=5', '+tries=1', '+noall', '+answer']' returned non-zero exit status 9.
+
+======================================================================
+FAIL: test_two_real_edges_tls_failover_recovery_and_caching (phase2.tests.test_phase2.EdgeIntegrationTests.test_two_real_edges_tls_failover_recovery_and_caching)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tests/test_phase2.py", line 291, in test_two_real_edges_tls_failover_recovery_and_caching
+    self.assertEqual({probes.https(ec, target="127.0.0.1")[1]["x-backend"] for _ in range(6)}, {"A", "B"})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the second set but not the first:
+'A'
+
+----------------------------------------------------------------------
+Ran 31 tests in 28.138s
+
+FAILED (failures=1, errors=1)

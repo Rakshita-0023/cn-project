@@ -1,0 +1,24 @@
+Observed at: 2026-11-23T22:56:34.112737+05:30
+Command: phase2/network.py --config network.env.example setup
++ /opt/homebrew/bin/python3 --version
+Python 3.14.7
++ /opt/homebrew/bin/nginx -v
+nginx version: nginx/1.31.6
++ /opt/homebrew/sbin/dnsmasq --version
+Dnsmasq version 2.93  Copyright (c) 2000-2026 Simon Kelley
+Compile time options: IPv6 GNU-getopt no-DBus no-UBus no-i18n no-IDN DHCP DHCPv6 no-Lua TFTP no-conntrack no-ipset no-nftset auth no-DNSSEC loop-detect no-inotify dumpfile
+
+This software comes with ABSOLUTELY NO WARRANTY.
+Dnsmasq is free software, and you are welcome to redistribute it
+under the terms of the GNU General Public License, version 2 or 3.
++ /opt/homebrew/bin/openssl version
+OpenSSL 4.0.3 29 Sep 2026 (Library: OpenSSL 4.0.3 29 Sep 2026)
++ /usr/bin/curl --version
+curl 8.7.1 (x86_64-apple-darwin25.0) libcurl/8.7.1 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.12 nghttp2/1.68.0
+Release-Date: 2024-03-27
+Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns ldap ldaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
+Features: alt-svc AsynchDNS GSS-API HSTS HTTP2 HTTPS-proxy IPv6 Kerberos Largefile libz MultiSSL NTLM SPNEGO SSL threadsafe UnixSockets
++ /usr/bin/dig -v
+DiG 9.10.6
+PASS: dependencies found; setup changed no client DNS, trust, services or firewall
+Command result: PASS

@@ -1,0 +1,116 @@
+Observed at: 2026-11-24T15:16:21.312005+05:30
+Command: phase2/network.py test dns
++ /usr/bin/dig @10.7.28.208 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.28.208 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 56323
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.28.208 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @10.7.28.208 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 30840
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.28.208 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.28.208 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 48985
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.28.208 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @10.7.28.208 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 25404
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.7.242 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.7.242 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 46009
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.7.242 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @10.7.7.242 -p 53 app.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 9305
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+app.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.7.242 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments
+
+; <<>> DiG 9.10.6 <<>> @10.7.7.242 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 54867
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.codexers.test.	30	IN	A	10.7.7.242
+
++ /usr/bin/dig @10.7.7.242 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+
+; <<>> DiG 9.10.6 <<>> @10.7.7.242 -p 53 api.codexers.test A +time=1 +tries=1 +noall +answer +comments +tcp
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 19742
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; ANSWER SECTION:
+api.codexers.test.	30	IN	A	10.7.7.242
+
+PASS: identical records and TTL from both resolvers over UDP and TCP
+Command result: PASS

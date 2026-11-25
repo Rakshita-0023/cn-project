@@ -1,0 +1,4 @@
+Observed at: 2026-11-23T22:56:16.906098+05:30
+Command: phase2/network.py setup
+FAIL: Run cp network.env.example network.env and edit the actual LAN addresses first
+Command result: FAIL

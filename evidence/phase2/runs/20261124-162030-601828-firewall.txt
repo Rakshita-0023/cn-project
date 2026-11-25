@@ -1,0 +1,6 @@
+Observed at: 2026-11-24T16:20:30.601989+05:30
+Command: phase2/network.py firewall status
++ pfctl -a com.apple/cn-phase2 -vvsr
+No ALTQ support in kernel
+ALTQ related functions disabled
+Command result: PASS

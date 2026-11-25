@@ -1,0 +1,783 @@
+Observed at: 2026-11-24T15:25:52.400858+05:30
+Command: phase2/network.py observe --seconds 60
+time=1795514152.443 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:55:52 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514152.600 X-Edge=edge-primary
+time=1795514153.655 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:55:54 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514154.160 X-Edge=edge-primary
+time=1795514155.209 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:55:55 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514155.268 X-Edge=edge-primary
+time=1795514156.325 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:55:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514156.540 X-Edge=edge-primary
+time=1795514157.599 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:55:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514157.853 X-Edge=edge-primary
+time=1795514158.909 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:55:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514159.098 X-Edge=edge-primary
+time=1795514160.151 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:00 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514160.307 X-Edge=edge-primary
+time=1795514161.370 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:01 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514161.662 X-Edge=edge-primary
+time=1795514162.726 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:02 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514162.880 X-Edge=edge-primary
+time=1795514163.940 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:04 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514164.413 X-Edge=edge-primary
+time=1795514165.448 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:05 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514165.505 X-Edge=edge-primary
+time=1795514166.565 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:06 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514166.797 X-Edge=edge-primary
+time=1795514167.853 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:08 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514168.001 X-Edge=edge-primary
+time=1795514169.066 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:09 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514169.339 X-Edge=edge-primary
+time=1795514170.380 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:10 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514170.451 X-Edge=edge-primary
+time=1795514171.511 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:11 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514171.710 X-Edge=edge-primary
+time=1795514172.769 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:13 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514173.012 X-Edge=edge-primary
+time=1795514174.069 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:14 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514174.384 X-Edge=edge-primary
+time=1795514175.446 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:15 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514175.667 X-Edge=edge-primary
+time=1795514176.718 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:16 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514176.831 X-Edge=edge-primary
+time=1795514177.889 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:17 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514177.942 X-Edge=edge-primary
+time=1795514178.988 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:19 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514179.297 X-Edge=edge-primary
+time=1795514180.363 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:20 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514180.493 X-Edge=edge-primary
+time=1795514181.558 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:21 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514181.726 X-Edge=edge-primary
+time=1795514182.785 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:23 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514183.040 X-Edge=edge-primary
+time=1795514184.101 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:24 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514184.179 X-Edge=edge-primary
+time=1795514185.242 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:25 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514185.307 X-Edge=edge-primary
+time=1795514186.351 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:26 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514186.441 X-Edge=edge-primary
+time=1795514187.496 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:27 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514187.758 X-Edge=edge-primary
+time=1795514188.805 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:29 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "A", "status": "ok"}
+time=1795514188.999 X-Edge=edge-primary
+time=1795514190.056 system A=['10.7.7.242']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:30 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-primary
+
+{"backend": "B", "status": "ok"}
+time=1795514190.114 X-Edge=edge-primary
+time=1795514191.266 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:31 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514191.331 X-Edge=edge-standby
+time=1795514192.385 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:32 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514192.453 X-Edge=edge-standby
+time=1795514193.506 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:33 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514193.522 X-Edge=edge-standby
+time=1795514194.599 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:34 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514194.706 X-Edge=edge-standby
+time=1795514195.793 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:35 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514195.817 X-Edge=edge-standby
+time=1795514196.858 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:36 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514196.904 X-Edge=edge-standby
+time=1795514197.960 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:38 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514198.009 X-Edge=edge-standby
+time=1795514199.078 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:39 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514199.245 X-Edge=edge-standby
+time=1795514200.298 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:40 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514200.319 X-Edge=edge-standby
+time=1795514201.383 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:41 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514201.511 X-Edge=edge-standby
+time=1795514202.555 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:42 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514202.601 X-Edge=edge-standby
+time=1795514203.660 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:43 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514203.701 X-Edge=edge-standby
+time=1795514204.753 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:44 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514204.771 X-Edge=edge-standby
+time=1795514205.826 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:46 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514206.095 X-Edge=edge-standby
+time=1795514207.150 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:47 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514207.168 X-Edge=edge-standby
+time=1795514208.213 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:48 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514208.425 X-Edge=edge-standby
+time=1795514209.460 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:49 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514209.473 X-Edge=edge-standby
+time=1795514210.528 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:50 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514210.779 X-Edge=edge-standby
+time=1795514211.827 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:51 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514211.843 X-Edge=edge-standby
+time=1795514212.904 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:53 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514213.141 X-Edge=edge-standby
+time=1795514214.193 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:54 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514214.209 X-Edge=edge-standby
+time=1795514215.263 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:55 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514215.506 X-Edge=edge-standby
+time=1795514216.561 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:56 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514216.578 X-Edge=edge-standby
+time=1795514217.633 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:57 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514217.756 X-Edge=edge-standby
+time=1795514218.801 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:58 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514218.815 X-Edge=edge-standby
+time=1795514219.865 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:56:59 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514220.013 X-Edge=edge-standby
+time=1795514221.080 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:57:01 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514221.099 X-Edge=edge-standby
+time=1795514222.141 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:57:02 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: B
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "B", "status": "ok"}
+time=1795514222.356 X-Edge=edge-standby
+time=1795514223.409 system A=['10.7.28.208']
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:57:03 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Backend: A
+Cache-Control: no-store
+X-Edge: edge-standby
+
+{"backend": "A", "status": "ok"}
+time=1795514223.424 X-Edge=edge-standby
+Command result: PASS

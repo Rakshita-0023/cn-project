@@ -1,0 +1,25 @@
+Observed at: 2026-11-24T15:10:55.241767+05:30
+Command: phase2/network.py test caching
+HTTP/1.1 200 OK
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:55 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 67
+Connection: keep-alive
+X-Backend: B
+Cache-Control: public, max-age=60
+ETag: "197f00155c83ec711ac9eb1e4ab66c5d7a7f88c9bf3e49632f151af091bca59c"
+X-Edge: edge-primary
+
+{"message":"Shared cacheable course-project resource","version":1}
+HTTP/1.1 304 Not Modified
+Server: nginx/1.31.6
+Date: Tue, 24 Nov 2026 09:40:55 GMT
+Connection: keep-alive
+X-Backend: A
+Cache-Control: public, max-age=60
+ETag: "197f00155c83ec711ac9eb1e4ab66c5d7a7f88c9bf3e49632f151af091bca59c"
+X-Edge: edge-primary
+
+PASS: shared cache representation and ETag/304
+Command result: PASS

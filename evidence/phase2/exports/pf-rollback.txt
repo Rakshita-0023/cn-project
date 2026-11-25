@@ -1,0 +1,16 @@
+Observed at: 2026-11-24T16:15:51.165703+05:30
+Command: phase2/network.py firewall rollback
++ pfctl -a com.apple/cn-phase2 -F rules
+No ALTQ support in kernel
+ALTQ related functions disabled
+rules cleared
++ pfctl -a com.apple/cn-phase2 -F Tables
+No ALTQ support in kernel
+ALTQ related functions disabled
+0 tables deleted.
++ pfctl -X [REDACTED_PF_REFERENCE]
+No ALTQ support in kernel
+ALTQ related functions disabled
+pf disabled
+PASS: removed only project rules/tables and released only the project's PF enable reference
+Command result: PASS

@@ -1,0 +1,33 @@
+Read-only QA observations: 2026-11-24T16:56:39.077840+05:30
++ ifconfig en0
+en0: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
+	options=6460<TSO4,TSO6,CHANNEL_IO,PARTIAL_CSUM,ZEROINVERT_CSUM>
+	ether 36:c0:34:9d:68:a5
+	inet6 fe80::14f9:2310:63ac:3b42%en0 prefixlen 64 secured scopeid 0xb 
+	inet 10.7.12.26 netmask 0xffffe000 broadcast 10.7.31.255
+	nd6 options=201<PERFORMNUD,DAD>
+	media: autoselect
+	status: active
+
+exit=0
++ route -n get 10.7.7.242
+   route to: 10.7.7.242
+destination: 10.7.7.242
+  interface: en0
+      flags: <UP,HOST,DONE,LLINFO,WASCLONED,IFSCOPE,IFREF>
+ recvpipe  sendpipe  ssthresh  rtt,msec    rttvar  hopcount      mtu     expire
+       0         0         0        18        15         0      1500      1199 
+
+exit=0
++ ping -c 4 10.7.7.242
+PING 10.7.7.242 (10.7.7.242): 56 data bytes
+64 bytes from 10.7.7.242: icmp_seq=0 ttl=32 time=565.050 ms
+64 bytes from 10.7.7.242: icmp_seq=1 ttl=32 time=412.499 ms
+64 bytes from 10.7.7.242: icmp_seq=2 ttl=32 time=321.512 ms
+64 bytes from 10.7.7.242: icmp_seq=3 ttl=32 time=229.358 ms
+
+--- 10.7.7.242 ping statistics ---
+4 packets transmitted, 4 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 229.358/382.105/565.050/123.891 ms
+
+exit=0

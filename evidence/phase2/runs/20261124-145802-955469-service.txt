@@ -1,0 +1,10 @@
+Observed at: 2026-11-24T14:58:02.955751+05:30
+Command: phase2/network.py service edge-standby start
++ /opt/homebrew/bin/nginx -p /private/tmp/cn-phase2-501/edge-standby/ -c /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/edge-standby/nginx.conf -t
+nginx: [warn] the "user" directive makes sense only if the master process runs with super-user privileges, ignored in /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/edge-standby/nginx.conf:2
+nginx: the configuration file /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/edge-standby/nginx.conf syntax is ok
+nginx: configuration file /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/edge-standby/nginx.conf test is successful
++ sudo chown _www /private/tmp/cn-phase2-501/edge-standby/client_temp /private/tmp/cn-phase2-501/edge-standby/proxy_temp
++ sudo /opt/homebrew/bin/nginx -p /private/tmp/cn-phase2-501/edge-standby/ -c /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/edge-standby/nginx.conf
+PASS: edge-standby listening 10.7.28.208:8443, PID 3445
+Command result: PASS

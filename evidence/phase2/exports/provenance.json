@@ -1,0 +1,80 @@
+{
+  "dns-resolution.txt": {
+    "source": "evidence/phase2/runs/20261124-150613-143356-test.txt",
+    "sha256": "1cf18569185073d74f2769793eba782747e375065a20d1696997565255fc5f82",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "1cf18569185073d74f2769793eba782747e375065a20d1696997565255fc5f82"
+  },
+  "tls-verification.txt": {
+    "source": "evidence/phase2/runs/20261124-145548-586670-tls.txt",
+    "sha256": "c78ef8a47dd5f409962003a1fa3d7e5c0805be57c2dbcf476793db3d479eb832",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "c78ef8a47dd5f409962003a1fa3d7e5c0805be57c2dbcf476793db3d479eb832"
+  },
+  "https-headers.txt": {
+    "source": "evidence/phase2/runs/20261124-151049-397414-test.txt",
+    "sha256": "83512bbdce1752299e643706d860b59fc5e5613b419b56afcde1008692573b62",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "83512bbdce1752299e643706d860b59fc5e5613b419b56afcde1008692573b62"
+  },
+  "load-balancing.txt": {
+    "source": "evidence/phase2/runs/20261124-151052-325065-test.txt",
+    "sha256": "e1373f45a35916018c86edb1712a201902ef48dc08e5e57300f175a36e057d27",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "e1373f45a35916018c86edb1712a201902ef48dc08e5e57300f175a36e057d27"
+  },
+  "etag-304-caching.txt": {
+    "source": "evidence/phase2/runs/20261124-151055-241606-test.txt",
+    "sha256": "463a7b37b7b2711e549f733d79dda83911a15d744d02f909ed57ea4e18dc8552",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "463a7b37b7b2711e549f733d79dda83911a15d744d02f909ed57ea4e18dc8552"
+  },
+  "firewall-isolation-current-ip.txt": {
+    "source": "evidence/phase2/runs/20261124-162147-295750-test.txt",
+    "sha256": "8f302aec2594ccb038202a17ce331e52b0e2a21b1d95574ed2f5ab38c3ab1a48",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "8f302aec2594ccb038202a17ce331e52b0e2a21b1d95574ed2f5ab38c3ab1a48"
+  },
+  "backend-failover-recovery.txt": {
+    "source": "evidence/phase2/runs/20261124-151627-955479-demo.txt",
+    "sha256": "5154a408d3113a21ad54fad334e61ac9849b9fe169e38cca86cf7dc8899b7f17",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "5154a408d3113a21ad54fad334e61ac9849b9fe169e38cca86cf7dc8899b7f17"
+  },
+  "dns-failover.txt": {
+    "source": "evidence/phase2/runs/20261124-151533-343105-test.txt",
+    "sha256": "dffc46464851cd2981151ced564223ede76bfd298e486b7847d637d2b7c30499",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "dffc46464851cd2981151ced564223ede76bfd298e486b7847d637d2b7c30499"
+  },
+  "ttl-migration-observer.txt": {
+    "source": "evidence/phase2/runs/20261124-152552-400567-observe.txt",
+    "sha256": "72324ad305997eb823ef15e9cdc300cec88a58e4313156a061fafea65ae9a0e4",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "72324ad305997eb823ef15e9cdc300cec88a58e4313156a061fafea65ae9a0e4"
+  },
+  "standby-migration.txt": {
+    "source": "evidence/phase2/runs/20261124-152750-651619-test.txt",
+    "sha256": "560cd7506d9d4d5591868231431dc3ea9225e4fd74f7aa0eaa3426a7530bba65",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "560cd7506d9d4d5591868231431dc3ea9225e4fd74f7aa0eaa3426a7530bba65"
+  },
+  "migration-rollback.txt": {
+    "source": "evidence/phase2/runs/20261124-152941-791907-test.txt",
+    "sha256": "43037da662c545232fa6e428a20d6f11ba11aa839ae07da0b9c1eeeade64ff2d",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "43037da662c545232fa6e428a20d6f11ba11aa839ae07da0b9c1eeeade64ff2d"
+  },
+  "pf-rollback.txt": {
+    "source": "evidence/phase2/runs/20261124-161551-165339-firewall.txt",
+    "sha256": "3da8ef529fef769202a39e6b4fb90426bff178b6bc69cfb17d10f1b7ee66b607",
+    "copy": "genuine command output; PF reference values redacted for public publication",
+    "source_sha256": "3da8ef529fef769202a39e6b4fb90426bff178b6bc69cfb17d10f1b7ee66b607"
+  },
+  "latest-acceptance-FAIL.txt": {
+    "source": "evidence/phase2/runs/20261124-165637-991096-test.txt",
+    "sha256": "4047032ac85efadb2827392a06b60ad7f92a3e110d96a41b2fadec15164388f2",
+    "copy": "byte-for-byte genuine command output",
+    "source_sha256": "4047032ac85efadb2827392a06b60ad7f92a3e110d96a41b2fadec15164388f2"
+  }
+}

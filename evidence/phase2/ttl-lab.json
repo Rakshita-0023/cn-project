@@ -1,0 +1,17 @@
+{
+  "observed_at": "2026-11-23T22:54:23.501121+05:30",
+  "scope": "local loopback only",
+  "run": 1,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "cases": [
+    {
+      "test": "phase2.tests.test_phase2.DNSIntegrationTests.test_real_ttl_expiry_record_change_and_cache_flush",
+      "status": "PASS",
+      "seconds": 4.214,
+      "reason": null
+    }
+  ]
+}

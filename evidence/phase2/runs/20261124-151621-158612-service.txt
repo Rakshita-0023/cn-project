@@ -1,0 +1,7 @@
+Observed at: 2026-11-24T15:16:21.158866+05:30
+Command: phase2/network.py service dns-primary start
++ /opt/homebrew/sbin/dnsmasq --test --conf-file=/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/dns-primary/dnsmasq.conf
+dnsmasq: syntax check OK.
++ sudo /opt/homebrew/sbin/dnsmasq --conf-file=/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/generated/dns-primary/dnsmasq.conf
+PASS: dns-primary listening 10.7.28.208:53, PID 15123
+Command result: PASS

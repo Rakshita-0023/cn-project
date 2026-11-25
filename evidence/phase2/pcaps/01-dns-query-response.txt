@@ -1,0 +1,32 @@
+GENUINE TSHARK PACKET EXPORT - NOT A WIRESHARK UI SCREENSHOT
+Source: evidence/phase2/pcaps/dns-tcp-tls.pcapng
+SHA-256: a6b6e243cbbf0a578410c5594b84cdb6c1adb7ad14dfd52188822f41e069293c
+Filter: frame.number == 16 || frame.number == 17
+
+frame.number: 16
+frame.time: 2026-11-24T15:55:01.776367000+0530
+ip.src: 10.7.12.26
+ip.dst: 10.7.7.242
+udp.srcport: 64231
+udp.dstport: 53
+dns.id: 0x1a47
+dns.flags.response: False
+dns.qry.name: app.codexers.test
+dns.response_to: 
+dns.a: 
+dns.resp.ttl: 
+
+frame.number: 17
+frame.time: 2026-11-24T15:55:02.065476000+0530
+ip.src: 10.7.7.242
+ip.dst: 10.7.12.26
+udp.srcport: 53
+udp.dstport: 64231
+dns.id: 0x1a47
+dns.flags.response: True
+dns.qry.name: app.codexers.test
+dns.response_to: 16
+dns.a: 10.7.7.242
+dns.resp.ttl: 30
+
+Matching query/response: transaction 0x1a47; response frame 17 identifies query frame 16.

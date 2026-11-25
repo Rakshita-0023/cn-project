@@ -1,0 +1,21 @@
+{
+  "observed_at": "2026-11-24T16:58:01.720885+05:30",
+  "captures": {
+    "dns-tcp-tls.pcapng": {
+      "sha256": "a6b6e243cbbf0a578410c5594b84cdb6c1adb7ad14dfd52188822f41e069293c",
+      "capinfos_exit": 0,
+      "capinfos": "File name:           /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/evidence/phase2/pcaps/dns-tcp-tls.pcapng\nFile type:           Wireshark/... - pcapng\nFile encapsulation:  Ethernet\nFile timestamp precision:  microseconds (6)\nPacket size limit:   file hdr: (not set)\nNumber of packets:   72\nFile size:           13 kB\nData size:           10 kB\nCapture duration:    466.374675 seconds\nEarliest packet time: 2026-11-24 15:48:49.364020\nLatest packet time:   2026-11-24 15:56:35.738695\nData byte rate:      22 bytes/s\nData bit rate:       183 bits/s\nAverage packet size: 148.43 bytes\nAverage packet rate: 0 packets/s\nSHA256:              a6b6e243cbbf0a578410c5594b84cdb6c1adb7ad14dfd52188822f41e069293c\nSHA1:                1fa991bba39639176c166593b502b62f863521f8\nStrict time order:   True\nCapture hardware:    Apple M3\nCapture oper-sys:    macOS 26.3, build 25D5087f (Darwin 25.3.0)\nCapture application: Dumpcap (Wireshark) 4.6.8 (v4.6.8-0-ge677bf052328)\nNumber of interfaces in file: 1\nInterface #0 info:\n                     Name = en0\n                     Description = Wi-Fi\n                     Encapsulation = Ethernet (1 - ether)\n                     Capture length = 524288\n                     Time precision = microseconds (6)\n                     Time ticks per second = 1000000\n                     Time resolution = 0x06\n                     Operating system = macOS 26.3, build 25D5087f (Darwin 25.3.0)\n                     Number of stat entries = 1\n                     Number of packets = 72\n",
+      "capinfos_error": "",
+      "tshark_exit": 0,
+      "tshark_error": ""
+    },
+    "dns-tcp-tls.pcap": {
+      "sha256": "ebba90ec7e8c22b88ec097f809085e9181ca32313789e07487664a25923f1803",
+      "capinfos_exit": 1,
+      "capinfos": "File name:           /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/evidence/phase2/pcaps/dns-tcp-tls.pcap\nFile type:           Wireshark/tcpdump/... - pcap\nFile encapsulation:  Ethernet\nFile timestamp precision:  microseconds (6)\nPacket size limit:   file hdr: 524288 bytes\nNumber of packets:   1512\nFile size:           294 kB\nData size:           270 kB\nCapture duration:    2193.346943 seconds\nEarliest packet time: 2026-11-24 15:45:19.629537\nLatest packet time:   2026-11-24 16:21:52.976480\nData byte rate:      123 bytes/s\nData bit rate:       986 bits/s\nAverage packet size: 178.85 bytes\nAverage packet rate: 0 packets/s\nSHA256:              ebba90ec7e8c22b88ec097f809085e9181ca32313789e07487664a25923f1803\nSHA1:                8599502d2c0b392f656b41f89dc466c6e905fb1b\nStrict time order:   True\nNumber of interfaces in file: 1\nInterface #0 info:\n                     Encapsulation = Ethernet (1 - ether)\n                     Capture length = 524288\n                     Time precision = microseconds (6)\n                     Time ticks per second = 1000000\n                     Number of stat entries = 0\n                     Number of packets = 1512\n",
+      "capinfos_error": "capinfos: An error occurred after reading 1512 packets from \"/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/evidence/phase2/pcaps/dns-tcp-tls.pcap\".\ncapinfos: The file \"/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/evidence/phase2/pcaps/dns-tcp-tls.pcap\" appears to have been cut short in the middle of a packet.\n  (will continue anyway, checksums might be incorrect)\n",
+      "tshark_exit": 14,
+      "tshark_error": "tshark: The file \"/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/evidence/phase2/pcaps/dns-tcp-tls.pcap\" appears to have been cut short in the middle of a packet.\n"
+    }
+  }
+}

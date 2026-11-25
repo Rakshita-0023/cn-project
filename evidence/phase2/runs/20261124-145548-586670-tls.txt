@@ -1,0 +1,13 @@
+Observed at: 2026-11-24T14:55:48.587081+05:30
+Command: phase2/network.py tls verify
++ /opt/homebrew/bin/openssl verify -CAfile /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tls/ca.crt -verify_hostname app.codexers.test /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tls/edge-standby/server.crt
+/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tls/edge-standby/server.crt: OK
++ /opt/homebrew/bin/openssl verify -CAfile /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tls/ca.crt -verify_hostname api.codexers.test /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tls/edge-standby/server.crt
+/Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tls/edge-standby/server.crt: OK
++ /opt/homebrew/bin/openssl x509 -in /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/phase2/tls/edge-standby/server.crt -noout -subject -dates -fingerprint -sha256
+subject=CN=app.codexers.test
+notBefore=Nov 24 09:12:15 2026 GMT
+notAfter=Feb 22 09:12:15 2027 GMT
+sha256 Fingerprint=57:0C:40:63:76:1B:8F:EB:61:41:BF:B0:07:D8:8A:1D:B5:62:B0:69:13:D4:D5:F9:7A:C6:ED:31:93:CC:F6:F1
+PASS: certificate chain, both SANs, key match, validity and key permissions
+Command result: PASS

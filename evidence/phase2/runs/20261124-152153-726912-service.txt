@@ -1,0 +1,5 @@
+Observed at: 2026-11-24T15:21:53.727373+05:30
+Command: phase2/network.py service backend-a restart
++ kill -TERM 15280
+FAIL: backend-a did not become ready; inspect /private/tmp/cn-phase2-501/backend-a. Any started process is retained for diagnosis; use service stop.
+Command result: FAIL

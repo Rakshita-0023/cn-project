@@ -1,0 +1,162 @@
+{
+  "dns-tcp-tls.pcap": {
+    "bytes": 294912,
+    "sha256": "ebba90ec7e8c22b88ec097f809085e9181ca32313789e07487664a25923f1803",
+    "filters": {
+      "project_dns": {
+        "count": 48,
+        "sample": [
+          "1\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "2\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "3\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "4\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "6\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "8\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "9\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "10\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "11\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "12\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "13\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "14\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t"
+        ],
+        "exit": 14,
+        "stderr": "tshark: The file \"evidence/phase2/pcaps/dns-tcp-tls.pcap\" appears to have been cut short in the middle of a packet.\n"
+      },
+      "project_dns_responses": {
+        "count": 13,
+        "sample": [
+          "26\t10.7.7.242\t10.7.12.26\t\t\t\tTrue\t10.7.7.242\t30\t",
+          "81\t10.7.7.242\t10.7.12.26\t\t\t\tTrue\t10.7.7.242\t30\t",
+          "83\t10.7.7.242\t10.7.12.26\t\t\t\tTrue\t10.7.7.242\t30\t",
+          "85\t10.7.7.242\t10.7.12.26\t\t\t\tTrue\t10.7.7.242\t30\t",
+          "113\t10.7.7.242\t10.7.12.26\t\t\t\tTrue\t10.7.7.242\t30\t",
+          "120\t10.7.7.242\t10.7.12.26\t3\t53\t61900\tTrue\t10.7.7.242\t30\t",
+          "144\t10.7.7.242\t10.7.12.26\t\t\t\tTrue\t10.7.7.242\t30\t",
+          "444\t10.7.12.26\t10.7.7.242\t\t\t\tTrue\t10.7.7.242\t30\t",
+          "462\t10.7.12.26\t10.7.7.242\t18\t53\t49388\tTrue\t10.7.7.242\t30\t",
+          "718\t10.7.7.242\t10.7.12.26\t\t\t\tTrue\t10.7.7.242\t30\t",
+          "725\t10.7.7.242\t10.7.12.26\t30\t53\t61934\tTrue\t10.7.7.242\t30\t",
+          "999\t10.7.12.26\t10.7.7.242\t\t\t\tTrue\t10.7.7.242\t30\t"
+        ],
+        "exit": 14,
+        "stderr": "tshark: The file \"evidence/phase2/pcaps/dns-tcp-tls.pcap\" appears to have been cut short in the middle of a packet.\n"
+      },
+      "project_tls": {
+        "count": 56,
+        "sample": [
+          "30\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t1",
+          "57\t10.7.12.26\t10.7.7.242\t1\t61397\t8443\t\t\t\t1",
+          "89\t10.7.12.26\t10.7.7.242\t2\t61667\t8443\t\t\t\t1",
+          "149\t10.7.12.26\t10.7.7.242\t5\t61909\t8443\t\t\t\t1",
+          "181\t10.7.12.26\t10.7.7.242\t6\t61910\t8443\t\t\t\t1",
+          "208\t10.7.12.26\t10.7.7.242\t7\t61911\t8443\t\t\t\t1",
+          "231\t10.7.12.26\t10.7.7.242\t8\t61912\t8443\t\t\t\t1",
+          "252\t10.7.12.26\t10.7.7.242\t9\t61913\t8443\t\t\t\t1",
+          "274\t10.7.12.26\t10.7.7.242\t10\t61914\t8443\t\t\t\t1",
+          "302\t10.7.12.26\t10.7.7.242\t11\t61915\t8443\t\t\t\t1",
+          "324\t10.7.12.26\t10.7.7.242\t12\t61916\t8443\t\t\t\t1",
+          "349\t10.7.12.26\t10.7.7.242\t13\t61917\t8443\t\t\t\t1"
+        ],
+        "exit": 14,
+        "stderr": "tshark: The file \"evidence/phase2/pcaps/dns-tcp-tls.pcap\" appears to have been cut short in the middle of a packet.\n"
+      },
+      "project_tcp": {
+        "count": 1359,
+        "sample": [
+          "27\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "28\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t",
+          "29\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "30\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t1",
+          "31\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t",
+          "32\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t",
+          "33\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t2",
+          "34\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "35\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "36\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "37\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "38\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t"
+        ],
+        "exit": 14,
+        "stderr": "tshark: The file \"evidence/phase2/pcaps/dns-tcp-tls.pcap\" appears to have been cut short in the middle of a packet.\n"
+      },
+      "certificate": {
+        "count": 0,
+        "sample": [],
+        "exit": 14,
+        "stderr": "tshark: The file \"evidence/phase2/pcaps/dns-tcp-tls.pcap\" appears to have been cut short in the middle of a packet.\n"
+      }
+    },
+    "capinfos": "File name:           evidence/phase2/pcaps/dns-tcp-tls.pcap\nFile type:           Wireshark/tcpdump/... - pcap\nFile encapsulation:  Ethernet\nFile timestamp precision:  microseconds (6)\nPacket size limit:   file hdr: 524288 bytes\nNumber of packets:   1512\nFile size:           294 kB\nData size:           270 kB\nCapture duration:    2193.346943 seconds\nEarliest packet time: 2026-11-24 15:45:19.629537\nLatest packet time:   2026-11-24 16:21:52.976480\nData byte rate:      123 bytes/s\nData bit rate:       986 bits/s\nAverage packet size: 178.85 bytes\nAverage packet rate: 0 packets/s\nSHA256:              ebba90ec7e8c22b88ec097f809085e9181ca32313789e07487664a25923f1803\nSHA1:                8599502d2c0b392f656b41f89dc466c6e905fb1b\nStrict time order:   True\nNumber of interfaces in file: 1\nInterface #0 info:\n                     Encapsulation = Ethernet (1 - ether)\n                     Capture length = 524288\n                     Time precision = microseconds (6)\n                     Time ticks per second = 1000000\n                     Number of stat entries = 0\n                     Number of packets = 1512\n",
+    "capinfos_stderr": "capinfos: An error occurred after reading 1512 packets from \"evidence/phase2/pcaps/dns-tcp-tls.pcap\".\ncapinfos: The file \"evidence/phase2/pcaps/dns-tcp-tls.pcap\" appears to have been cut short in the middle of a packet.\n  (will continue anyway, checksums might be incorrect)\n"
+  },
+  "dns-tcp-tls.pcapng": {
+    "bytes": 13468,
+    "sha256": "a6b6e243cbbf0a578410c5594b84cdb6c1adb7ad14dfd52188822f41e069293c",
+    "filters": {
+      "project_dns": {
+        "count": 19,
+        "sample": [
+          "1\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "2\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "3\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "4\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "5\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "6\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "7\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "8\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "9\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "10\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "11\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t",
+          "12\t10.7.12.26\t10.7.7.242\t\t\t\tFalse\t\t\t"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "project_dns_responses": {
+        "count": 2,
+        "sample": [
+          "17\t10.7.7.242\t10.7.12.26\t\t\t\tTrue\t10.7.7.242\t30\t",
+          "72\t10.7.7.242\t10.7.12.26\t\t\t\tTrue\t10.7.7.242\t30\t"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "project_tls": {
+        "count": 2,
+        "sample": [
+          "21\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t1",
+          "48\t10.7.12.26\t10.7.7.242\t1\t61397\t8443\t\t\t\t1"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "project_tcp": {
+        "count": 53,
+        "sample": [
+          "18\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "19\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t",
+          "20\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "21\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t1",
+          "22\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t",
+          "23\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t",
+          "24\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t2",
+          "25\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "26\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "27\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "28\t10.7.12.26\t10.7.7.242\t0\t61350\t8443\t\t\t\t",
+          "29\t10.7.7.242\t10.7.12.26\t0\t8443\t61350\t\t\t\t"
+        ],
+        "exit": 0,
+        "stderr": ""
+      },
+      "certificate": {
+        "count": 0,
+        "sample": [],
+        "exit": 0,
+        "stderr": ""
+      }
+    },
+    "capinfos": "File name:           evidence/phase2/pcaps/dns-tcp-tls.pcapng\nFile type:           Wireshark/... - pcapng\nFile encapsulation:  Ethernet\nFile timestamp precision:  microseconds (6)\nPacket size limit:   file hdr: (not set)\nNumber of packets:   72\nFile size:           13 kB\nData size:           10 kB\nCapture duration:    466.374675 seconds\nEarliest packet time: 2026-11-24 15:48:49.364020\nLatest packet time:   2026-11-24 15:56:35.738695\nData byte rate:      22 bytes/s\nData bit rate:       183 bits/s\nAverage packet size: 148.43 bytes\nAverage packet rate: 0 packets/s\nSHA256:              a6b6e243cbbf0a578410c5594b84cdb6c1adb7ad14dfd52188822f41e069293c\nSHA1:                1fa991bba39639176c166593b502b62f863521f8\nStrict time order:   True\nCapture hardware:    Apple M3\nCapture oper-sys:    macOS 26.3, build 25D5087f (Darwin 25.3.0)\nCapture application: Dumpcap (Wireshark) 4.6.8 (v4.6.8-0-ge677bf052328)\nNumber of interfaces in file: 1\nInterface #0 info:\n                     Name = en0\n                     Description = Wi-Fi\n                     Encapsulation = Ethernet (1 - ether)\n                     Capture length = 524288\n                     Time precision = microseconds (6)\n                     Time ticks per second = 1000000\n                     Time resolution = 0x06\n                     Operating system = macOS 26.3, build 25D5087f (Darwin 25.3.0)\n                     Number of stat entries = 1\n                     Number of packets = 72\n",
+    "capinfos_stderr": ""
+  }
+}

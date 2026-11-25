@@ -1,0 +1,6 @@
+Observed at: 2026-11-24T15:10:12.920704+05:30
+Command: phase2/network.py flush-dns
++ sudo dscacheutil -flushcache
++ sudo killall -HUP mDNSResponder
+Flushed native macOS DNS caches. Browser caches/DoH and long-lived connections may behave separately.
+Command result: PASS

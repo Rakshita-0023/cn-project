@@ -1,0 +1,4 @@
+Observed at: 2026-11-24T15:45:14.100580+05:30
+Command: phase2/network.py service backend-a start
+FAIL: Current LAN IP does not match exactly one laptop in network.env; regenerate the inventory/config
+Command result: FAIL

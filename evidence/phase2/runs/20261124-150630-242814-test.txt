@@ -1,0 +1,4 @@
+Observed at: 2026-11-24T15:06:30.243069+05:30
+Command: phase2/network.py test caching
+FAIL: curl failed (28): curl: (28) Resolving timed out after 4005 milliseconds
+Command result: FAIL

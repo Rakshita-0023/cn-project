@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">Codexers Phase 2 two-Mac network architecture</title>
+<desc id="desc">Mac 1 runs primary DNS, standby nginx and backend A. Mac 2 runs backup DNS, primary nginx and backend B. Both edges balance to both backends. Clients use both DNS servers; DNS cutover moves them between edges.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#117e78"/></marker></defs>
+<rect width="1200" height="760" fill="#f2f6fa"/>
+<rect width="1200" height="122" fill="#12253e"/>
+<g font-family="Helvetica,Arial,sans-serif">
+<text x="48" y="42" font-size="16" font-weight="700" fill="#81dcd0">CODEXERS / PRIVATE NETWORK SERVICE PLATFORM</text>
+<text x="48" y="84" font-size="31" font-weight="700" fill="white">Phase 2: two Macs, resilient service roles</text>
+<rect x="44" y="154" width="516" height="354" rx="17" fill="white" stroke="#bfd2dd"/>
+<rect x="640" y="154" width="516" height="354" rx="17" fill="white" stroke="#bfd2dd"/>
+<text x="68" y="192" font-size="23" font-weight="700" fill="#12253e">Mac 1 / Rakshita</text>
+<text x="664" y="192" font-size="23" font-weight="700" fill="#12253e">Mac 2 / Lakshya</text>
+<text x="68" y="219" font-size="14" fill="#4c6277">LAPTOP1_IP / current observed IP: 10.7.12.26</text>
+<text x="664" y="219" font-size="14" fill="#4c6277">LAPTOP2_IP / current deployment IP: 10.7.7.242</text>
+<rect x="68" y="242" width="468" height="62" rx="9" fill="#e5f5f1"/>
+<rect x="664" y="242" width="468" height="62" rx="9" fill="#e5f5f1"/>
+<text x="86" y="268" font-size="19" font-weight="700" fill="#146a62">Primary DNS / UDP + TCP 53</text>
+<text x="86" y="291" font-size="14" fill="#305c5a">app + api records / configurable TTL (default 30s)</text>
+<text x="682" y="268" font-size="19" font-weight="700" fill="#146a62">Backup DNS / UDP + TCP 53</text>
+<text x="682" y="291" font-size="14" fill="#305c5a">Same records / clients list both DNS addresses</text>
+<path d="M544 272H656" stroke="#117e78" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="68" y="321" width="468" height="64" rx="9" fill="#eaf0fc"/>
+<rect x="664" y="321" width="468" height="64" rx="9" fill="#eaf0fc"/>
+<text x="86" y="347" font-size="19" font-weight="700" fill="#254e8b">Standby nginx / HTTPS 8443</text>
+<text x="86" y="371" font-size="14" fill="#415f83">edge-standby / separate key, shared trusted CA</text>
+<text x="682" y="347" font-size="19" font-weight="700" fill="#254e8b">Primary nginx / HTTPS 8443</text>
+<text x="682" y="371" font-size="14" fill="#415f83">edge-primary / round robin + passive failover</text>
+<rect x="68" y="410" width="468" height="72" rx="9" fill="#fff1dd"/>
+<rect x="664" y="410" width="468" height="72" rx="9" fill="#fff1dd"/>
+<text x="86" y="438" font-size="19" font-weight="700" fill="#8b5918">Backend A / HTTP 3001</text>
+<text x="86" y="463" font-size="14" fill="#76592f">X-Backend: A / shared ETag / status + cache API</text>
+<text x="682" y="438" font-size="19" font-weight="700" fill="#8b5918">Backend B / HTTP 3002</text>
+<text x="682" y="463" font-size="14" fill="#76592f">X-Backend: B / shared ETag / status + cache API</text>
+<path d="M518 385V406M1114 385V406M538 354L658 434M662 354L542 434" fill="none" stroke="#117e78" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="44" y="534" width="1112" height="106" rx="13" fill="#12253e"/>
+<text x="68" y="567" font-size="21" font-weight="700" fill="white">Clients on both Macs</text>
+<text x="68" y="596" font-size="17" fill="#c6d9e9">DNS lookup/cache → TCP → TLS validation → nginx → Backend A or B</text>
+<text x="68" y="622" font-size="15" fill="#81dcd0">Normal A records: Mac 2 / Controlled cutover: Mac 1 / Keep both edges serving during TTL expiry</text>
+<text x="48" y="677" font-size="17" font-weight="700" fill="#12253e">Isolation: both-host outgoing UID guard + inbound edge allowlist + scoped PF rollback</text>
+<text x="48" y="705" font-size="15" fill="#4c6277">Backend clients share edge IPs; only the nginx worker identity may open backend sockets.</text>
+<text x="48" y="733" font-size="14" fill="#4c6277">Historical live results verified. Current acceptance FAIL; faculty challenge pending. See report and checklist.</text>
+</g></svg>

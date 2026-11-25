@@ -1,3 +1,5 @@
+**Current Phase 2 deployment:** Rakshita 10.7.12.26; Lakshya 10.7.7.242. See [updated configuration bundle](phase2/CONFIGURATION_BUNDLE.md). The Phase 1 sections below retain historical values. Final readiness is governed by SUBMISSION_CHECKLIST.md.
+
 # Codexers — Phase 1 configuration bundle
 
 Run commands from the repository root. The [deployment guide](../README.md) gives the complete order. All deployment addresses come from your uncommitted `network.env`; configuration templates stay portable.

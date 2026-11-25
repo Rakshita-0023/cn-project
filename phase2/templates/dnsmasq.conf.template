@@ -1,0 +1,16 @@
+# Local project service, no DHCP; exact records shared by both resolvers.
+port=53
+listen-address={{DNS_LISTEN}}
+bind-interfaces
+no-resolv
+no-hosts
+domain-needed
+bogus-priv
+local=/{{ZONE}}/
+local-ttl={{TTL}}
+host-record={{APP_DOMAIN}},{{RECORD_IP}},{{TTL}}
+host-record={{API_DOMAIN}},{{RECORD_IP}},{{TTL}}
+log-queries=extra
+log-facility={{DNS_LOG}}
+pid-file={{DNS_PID}}
+{{UPSTREAM_LINES}}

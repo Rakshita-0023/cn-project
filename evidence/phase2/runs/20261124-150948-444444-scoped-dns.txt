@@ -1,0 +1,6 @@
+Observed at: 2026-11-24T15:09:48.444721+05:30
+Command: phase2/network.py scoped-dns set
++ sudo mkdir -p /etc/resolver
++ sudo install -m 644 /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/dns/runtime/phase2-scoped-resolver /etc/resolver/codexers.test
+Configured scoped resolver for codexers.test with BOTH DNS servers; backup retained at /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/dns/runtime/phase2-scoped-backup.json
+Command result: PASS

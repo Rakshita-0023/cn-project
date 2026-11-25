@@ -1,0 +1,5 @@
+Observed at: 2026-11-24T15:15:18.479672+05:30
+Command: phase2/network.py service dns-primary stop
++ sudo kill -TERM 6998
+PASS: dns-primary stopped
+Command result: PASS

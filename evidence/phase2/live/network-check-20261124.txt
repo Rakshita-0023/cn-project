@@ -1,0 +1,32 @@
++ ifconfig en0
+en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	options=6460<TSO4,TSO6,CHANNEL_IO,PARTIAL_CSUM,ZEROINVERT_CSUM>
+	ether 12:18:29:8b:24:8d
+	inet6 fe80::145c:23d6:2b41:d50a%en0 prefixlen 64 secured scopeid 0xb 
+	inet 10.7.28.208 netmask 0xffffe000 broadcast 10.7.31.255
+	nd6 options=201<PERFORMNUD,DAD>
+	media: autoselect
+	status: active
+
+exit=0
++ route -n get 10.7.7.242
+   route to: 10.7.7.242
+destination: 10.7.7.242
+  interface: en0
+      flags: <UP,HOST,DONE,LLINFO,WASCLONED,IFSCOPE,IFREF>
+ recvpipe  sendpipe  ssthresh  rtt,msec    rttvar  hopcount      mtu     expire
+       0         0         0         0         0         0      1500      1180 
+
+exit=0
++ ping -c 4 10.7.7.242
+PING 10.7.7.242 (10.7.7.242): 56 data bytes
+64 bytes from 10.7.7.242: icmp_seq=0 ttl=64 time=6.542 ms
+64 bytes from 10.7.7.242: icmp_seq=1 ttl=64 time=11.000 ms
+64 bytes from 10.7.7.242: icmp_seq=2 ttl=64 time=17.670 ms
+64 bytes from 10.7.7.242: icmp_seq=3 ttl=64 time=11.690 ms
+
+--- 10.7.7.242 ping statistics ---
+4 packets transmitted, 4 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 6.542/11.726/17.670/3.960 ms
+
+exit=0

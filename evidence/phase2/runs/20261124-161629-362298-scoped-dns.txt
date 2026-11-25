@@ -1,0 +1,4 @@
+Observed at: 2026-11-24T16:16:29.362468+05:30
+Command: phase2/network.py scoped-dns set
+FAIL: Scoped resolver backup already exists; restore before setting again
+Command result: FAIL

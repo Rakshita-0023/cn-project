@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-23T22:43:49.463260+05:30",
+  "laptop": 1,
+  "hostname": "polanarakshita2024nstrishihoodeduins-MacBook-Pro.local",
+  "ipv4": "10.7.28.208",
+  "subnet_mask": "255.255.224.0",
+  "prefix": 19,
+  "interface": "en0",
+  "mac_address": "12:18:29:8b:24:8d",
+  "gateway": "10.7.0.1",
+  "route_output": "   route to: default\ndestination: default\n       mask: default\n    gateway: 10.7.0.1\n  interface: en0\n      flags: <UP,GATEWAY,DONE,STATIC,PRCLONING,GLOBAL>\n recvpipe  sendpipe  ssthresh  rtt,msec    rttvar  hopcount      mtu     expire\n       0         0         0         0         0         0      1500         0 \n",
+  "ifconfig_output": "en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500\n\toptions=6460<TSO4,TSO6,CHANNEL_IO,PARTIAL_CSUM,ZEROINVERT_CSUM>\n\tether 12:18:29:8b:24:8d\n\tinet6 fe80::145c:23d6:2b41:d50a%en0 prefixlen 64 secured scopeid 0xb \n\tinet 10.7.28.208 netmask 0xffffe000 broadcast 10.7.31.255\n\tnd6 options=201<PERFORMNUD,DAD>\n\tmedia: autoselect\n\tstatus: active\n"
+}
+PASS: actual inventory saved to /Users/polana.rakshita2024nstrishihood.edu.in/Downloads/cn-project-main/evidence/lan/inventory-laptop1.json

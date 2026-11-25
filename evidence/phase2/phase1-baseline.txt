@@ -1,0 +1,41 @@
+test_cache_is_consistent_across_backends_and_supports_conditional_get (__main__.BackendTests.test_cache_is_consistent_across_backends_and_supports_conditional_get) ... ok
+test_head_has_representation_headers_and_no_body (__main__.BackendTests.test_head_has_representation_headers_and_no_body) ... ok
+test_required_endpoints_identify_each_instance (__main__.BackendTests.test_required_endpoints_identify_each_instance) ... ok
+test_automatic_dns_restores_with_empty_and_failed_restore_keeps_backup (__main__.ClientDNSStateTests.test_automatic_dns_restores_with_empty_and_failed_restore_keeps_backup) ... Changing Wi-Fi DNS: automatic / DHCP -> 192.168.1.10
+PASS: DNS set; original settings preserved in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/tmp4yloznp6/dns/runtime/client-dns-backup.json
+Restoring Wi-Fi DNS to automatic / DHCP
+Restoring Wi-Fi DNS to automatic / DHCP
+ok
+test_preserves_manual_ipv4_ipv6_settings_across_repeated_changes (__main__.ClientDNSStateTests.test_preserves_manual_ipv4_ipv6_settings_across_repeated_changes) ... PASS: original DNS settings restored; backup removed only after success
+Changing Campus Wi-Fi DNS: ['192.168.1.20', '::1'] -> 192.168.1.10
+PASS: DNS set; original settings preserved in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/tmpvzron032/dns/runtime/client-dns-backup.json
+Keeping the original DNS backup; repeated setup/fault tests do not overwrite it.
+Changing Campus Wi-Fi DNS: ['192.168.1.20', '::1'] -> 192.168.1.20
+PASS: DNS set; original settings preserved in /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/tmpvzron032/dns/runtime/client-dns-backup.json
+Restoring Campus Wi-Fi DNS to ['192.168.1.20', '::1']
+ok
+test_stop_refuses_an_unrelated_pid (__main__.ClientDNSStateTests.test_stop_refuses_an_unrelated_pid) ... ok
+test_alias_mismatch_is_rejected (__main__.ConfigurationTests.test_alias_mismatch_is_rejected) ... ok
+test_domain_injection_and_non_test_domain_are_rejected (__main__.ConfigurationTests.test_domain_injection_and_non_test_domain_are_rejected) ... ok
+test_duplicates_unknown_keys_shell_expressions_and_ports_are_rejected (__main__.ConfigurationTests.test_duplicates_unknown_keys_shell_expressions_and_ports_are_rejected) ... ok
+test_example_environment_parses_and_aliases_match (__main__.ConfigurationTests.test_example_environment_parses_and_aliases_match) ... ok
+test_loopback_is_rejected_for_physical_deployment (__main__.ConfigurationTests.test_loopback_is_rejected_for_physical_deployment) ... ok
+test_missing_runtime_environment_is_rejected (__main__.ConfigurationTests.test_missing_runtime_environment_is_rejected) ... ok
+test_quoted_values_comments_and_upstream_dns (__main__.ConfigurationTests.test_quoted_values_comments_and_upstream_dns) ... ok
+test_direct_entries_and_shell_launchers_use_environment_and_clean_pid (__main__.EntrypointTests.test_direct_entries_and_shell_launchers_use_environment_and_clean_pid) ... ok
+test_optional_ca_chain_sans_permissions_and_no_silent_rotation (__main__.EntrypointTests.test_optional_ca_chain_sans_permissions_and_no_silent_rotation) ... ok
+test_real_project_nginx_start_reload_stop_lifecycle (__main__.EntrypointTests.test_real_project_nginx_start_reload_stop_lifecycle) ... ok
+test_rendering_commands_and_start_reject_invalid_nginx (__main__.EntrypointTests.test_rendering_commands_and_start_reject_invalid_nginx) ... ok
+test_real_dnsmasq_answers_both_names_with_ttl_over_udp_and_tcp (__main__.NetworkIntegrationTests.test_real_dnsmasq_answers_both_names_with_ttl_over_udp_and_tcp) ... ok
+test_real_nginx_tls_round_robin_caching_and_failures (__main__.NetworkIntegrationTests.test_real_nginx_tls_round_robin_caching_and_failures) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 13.947s
+
+OK
+PASS: original DNS settings restored; backup removed only after success
+PASS: source/evidence zip saved to ignored /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn commands with spaces g4_u17aq/scripts/runtime/cn-project.zip
+PASS: DNS configuration rendered to /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn dns 1vkhg5u7/dns/generated/dnsmasq.conf
+PASS: DNS configuration rendered to /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase1 yvy0crgn/dns/generated/dnsmasq.conf
+PASS: nginx configuration rendered to /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase1 yvy0crgn/nginx/generated/nginx.conf
+PASS: nginx configuration rendered to /var/folders/5m/yf48_g_55jg1npd4vnntx9sh0000gn/T/cn phase1 yvy0crgn/nginx/generated/nginx.conf
